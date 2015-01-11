@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+#********************************
+# autor: luis Sagastume
+# email: lsagastume1990@gmail.com 
+# install.sh
+# Setup for dotfiles
+#********************************
+
+# Dot files will be stores in a directoy called .dotfiles in the home directory
+dotfiles_dir=".dotfiles"
+
+mkdir "~/$dotfiles_dir"
+
+# Move all dot files in repo to home directory
+for file in . do
+  if [[ -d file ]] then
+    mv -f $file ~/$dotfiles_dir/
+    
+    if [[ -f ~/.$file]] then
+      echo ".$file found if home directory, renaming to .old_$file"
+      mv "~/.$file ~/.old_$file "
+    fi
+
+    echo "Creating symlink to $file in home directory"
+    ln -s ~/$dotfiles_dir/$file/.$file ~/.$file 
+  fi
+done
+
+
