@@ -1,59 +1,4 @@
 set nocompatible              " be iMproved, required
-"-----------------------------------------------
-"The best colorschemes in flazz/vim-colorschemes
-"-----------------------------------------------
-
-"herald
-"h3rald
-"molokai
-"candyman
-"kruby
-"moss
-"neon
-"zen
-"wuye
-"maroloccio
-"marklar
-"luinnar
-"lucius
-"desert256
-"blazer
-"blink
-"mustang
-"darkrobot
-"darkspectrum
-"dante
-"rainbow_neon
-"peppers
-"paintbox
-"navajo-night
-"mint
-"miko
-"darkburn
-"candy
-"blackdust
-"symfony
-"void
-"rootwater
-"charon
-"fu
-"gothic
-"potts
-"matrix
-"3dglasses
-"adrian
-"desertEx
-"elflord
-"graywh
-"doriath
-"metacosm
-"mrkn256
-"shobogenzo
-"candystripe
-"Futora
-"Tomorrow-Night-Eighties
-"hybrid
-"seoul256
 
 set t_Co=256
 
@@ -250,6 +195,61 @@ autocmd FileType c iabbrev <buffer> @l #include <stdlib.h><cr>#include <stdio.h>
 " This will elimiate all the whitespace when a file is writen
 autocmd FileType c,cpp,java,php,go,ruby,javascript,python,perl,sql,sh,yaml,html,erb,css,vim  autocmd BufWritePre <buffer> :%s/\s\+$//e
 
+"-----------------------------------------------
+"The best colorschemes in flazz/vim-colorschemes
+"-----------------------------------------------
+
+"herald
+"h3rald
+"molokai
+"candyman
+"kruby
+"moss
+"neon
+"zen
+"wuye
+"maroloccio
+"marklar
+"luinnar
+"lucius
+"desert256
+"blazer
+"blink
+"mustang
+"darkrobot
+"darkspectrum
+"dante
+"rainbow_neon
+"peppers
+"paintbox
+"navajo-night
+"mint
+"miko
+"darkburn
+"candy
+"blackdust
+"symfony
+"void
+"rootwater
+"charon
+"fu
+"gothic
+"potts
+"matrix
+"3dglasses
+"adrian
+"desertEx
+"elflord
+"graywh
+"doriath
+"metacosm
+"mrkn256
+"shobogenzo
+"candystripe
+"Futora
+"Tomorrow-Night-Eighties
+"hybrid
+"seoul256
 
 colorscheme molokai
 
