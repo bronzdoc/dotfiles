@@ -48,7 +48,7 @@ function setup()
 	help
     fi
 
-    if [ ! -f ~/"$file" ]; then
+    if [ ! -e ~/"$file" ]; then
 	# "${string#substring}" remove substring from string
 	ln -s "$PWD/${file#.}" ~/"$file"
         echo "Setting up $file"
