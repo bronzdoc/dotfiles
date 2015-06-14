@@ -23,7 +23,8 @@ function setup()
 {
     file="$1"
     if [ ! -f ~/"$file" ]; then
-	ln -s "$PWD/$file" ~/"$file"
+	# "${string#substring}" remove substring from string
+	ln -s "$PWD/${file#.}" ~/"$file"
         echo "Setting up $file"
     else
 	echo -n "$file file already exists, do you want to update it [y/n]: "
@@ -32,7 +33,7 @@ function setup()
 	if [ "$update" == "y" ]; then
 	    mv ~/"$file" ~/"$old_file"; mv ~/"$old_file" "$PWD/backups"
 	    ln -s "$PWD/bashrc" ~/$file
-	    echo "Setting up $file"
+	    echo "$file updated"
 	fi
     fi
 }
@@ -48,7 +49,7 @@ function help()
     exit 0
 }
 
-#Get user input
+# Get user input
 arg=$1
 
 # Run the setup
