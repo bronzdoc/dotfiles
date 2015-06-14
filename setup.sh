@@ -3,7 +3,7 @@
 #********************************
 # Author: luis Sagastume
 # Email: lsagastume1990@gmail.com
-# install.sh
+# setup.sh
 # Setup for dotfiles
 #********************************
 
@@ -73,7 +73,6 @@ function clean()
 {
     rm "$PWD/backups/*"
 }
-
 
 #****************************************
 # Help function
