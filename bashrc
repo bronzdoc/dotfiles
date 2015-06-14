@@ -6,19 +6,6 @@ alias tmux="tmux -2"
 
 alias ls="ls --color -l"
 alias gits="git status"
-alias mongo_prod='mongo -u ayalo -p cu3teVentures! ds055670-a0.mongolab.com:55670/ayalo_production'
-# alias mongo_beta='mongo -u heroku_app12791487 -p e80vhlnjnh0s9jo2n2sqcq33j9 ds049858.mongolab.com:49858/beta_ayalo'
-alias mongo_beta='mongo -u ayalo -p cu3teVentures! ds029827.mongolab.com:29827/ayalo_staging'
-
-alias dump_mongo_prod="mongodump --host ds055670-a0.mongolab.com --db ayalo_production --username ayalo --port 55670 --password cu3teVentures! --out mongo_backup-$(date +%m-%d-%Y)"
-alias cuete='ssh ubuntu@54.225.110.25'
-
-alias postgres_server='ssh ubuntu@54.225.139.118'
-alias dump_postgres_prod="pg_dump -h ec2-54-243-136-95.compute-1.amazonaws.com -U u3rcmorpvbt9kn -p 5492 > pg-$(date +%m-%d-%Y).out"
-
-alias pospro="psql -h ec2-54-243-136-95.compute-1.amazonaws.com -U u3rcmorpvbt9kn -p 5492 d9463q9lg5lbl2"
-alias posbeta="psql -h sebastiangodoy.com -U postgres -p 5432 ayalo_dev"
-
 alias docapps="cd /var/www/apps"
 alias docpro="cd ~/projects"
 

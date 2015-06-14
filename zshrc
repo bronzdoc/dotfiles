@@ -89,14 +89,9 @@ set -o vi
 
 # Useful aliases
 alias ls="ls --color -l"
-alias mongo_prod='mongo -u ayalo -p cu3teVentures! ds055670-a0.mongolab.com:55670/ayalo_production'
 alias zsh='vi ~/.zshrc'
 alias vrc='vi ~/.vimrc'
 
-# alias mongo_beta='mongo -u heroku_app12791487 -p e80vhlnjnh0s9jo2n2sqcq33j9 ds049858.mongolab.com:49858/beta_ayalo'
-alias mongo_beta='mongo -u ayalo -p cu3teVentures! ds029827.mongolab.com:29827/ayalo_staging'
-
-alias dump_mongo_prod="mongodump --host ds055670-a0.mongolab.com --db ayalo_production --username ayalo --port 55670 --password cu3teVentures! --out mongo_backup-$(date +%m-%d-%Y)"
 function restore_mongo()
 {
   echo -n "DB name: "
@@ -106,25 +101,6 @@ function restore_mongo()
   mongorestore --db $db_name $backup
 }
 
-alias cuete='ssh ubuntu@54.225.110.25'
-alias ayalo='ssh ubuntu@ayalo.co'
-alias sms_server='ssh ubuntu@54.208.130.7'
-
-alias postgres_server='ssh ubuntu@54.225.139.118'
-alias dump_postgres_prod="pg_dump -h ec2-54-243-136-95.compute-1.amazonaws.com -U u3rcmorpvbt9kn -d d9463q9lg5lbl2 -p 5492  > pg-$(date +%m-%d-%Y).out"
-
-# Dump productions postgres and restore it locally
-function restore_postgres_local()
-{
- url=`heroku pgbackups:url --app fast-wave-4205`
- wget -O pg.dump $url
- psql -U postgres <<< 'DROP DATABASE ayalo_dev'
- psql -U postgres <<< 'CREATE DATABASE ayalo_dev'
- pg_restore -U postgres -Od ayalo_dev pg.dump
-}
-
-alias pospro="psql -h ec2-54-243-136-95.compute-1.amazonaws.com -U u3rcmorpvbt9kn -p 5492 d9463q9lg5lbl2"
-alias posbeta="psql -h sebastiangodoy.com -U ayalo -p 5432 ayalo_dev"
 alias posdev="psql ayalo_dev postgres"
 
 alias docapps="cd /var/www/apps"
@@ -154,9 +130,7 @@ fi
 # Set solarized theme colors for terminal
 eval `dircolors ~/.dircolors`
 
-# export TERM=xterm-256color
-
 # Start tmux everytime a terminal is open
 alias tmux="tmux -2"
-# tmux
+tmux
 
