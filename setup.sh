@@ -89,7 +89,7 @@ function help()
     exit 0
 }
 
-# Get user input
+# Get input
 arg=$1
 
 # Run the setup
