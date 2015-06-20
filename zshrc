@@ -3,7 +3,6 @@ export ZSH=$HOME/.oh-my-zsh
 
 #Load rvm
 #source "/home/lsagastume/.rvm/scripts/rvm"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -113,7 +112,7 @@ export PATH=$PATH:$GOPATH/bin
 
 # Python env
 export WORKON_HOME="$HOME/.virtualenvs"
-source /usr/local/bin/virtualenvwrapper.sh
+#source /usr/local/bin/virtualenvwrapper.sh
 
 # Java env
 CLASSPATH=~/projects/galileo/cc4:.
@@ -128,9 +127,12 @@ if [[ -f "$NVM_HOME/nvm.sh" ]]; then
 fi
 
 # Set solarized theme colors for terminal
-eval `dircolors ~/.dircolors`
+#eval `dircolors ~/.dircolors`
 
 # Start tmux everytime a terminal is open
 alias tmux="tmux -2"
-tmux
+#tmux
 
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
