@@ -53,6 +53,8 @@ Plugin 'vim-pandoc/vim-pandoc'
 " javascript indentation
 Plugin 'jelera/vim-javascript-syntax'
 
+Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
+
 " All of your Plugins must be added before the following line
 call vundle#end()
 
@@ -202,6 +204,7 @@ set foldmethod=indent
 "set foldlevel=1
 set foldclose=all
 
+
 "-----------------------------------------------
 "The best colorschemes in flazz/vim-colorschemes
 "-----------------------------------------------
@@ -253,7 +256,6 @@ set foldclose=all
 "mrkn256
 "shobogenzo
 "candystripe
-"Futora
 "Tomorrow-Night-Eighties
 "hybrid
 "seoul256
@@ -289,4 +291,4 @@ set foldclose=all
 
 "colorscheme burnttoast256
 "colorscheme iceberg
-colorscheme mizore
+colorscheme dracula
