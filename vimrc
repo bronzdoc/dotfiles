@@ -45,15 +45,17 @@ Bundle 'kshenoy/vim-signature'
 Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
 
-" Whitespace
-Plugin 'bronson/vim-trailing-whitespace'
-
 Plugin 'vim-pandoc/vim-pandoc'
 
-" javascript indentation
+" javascript syntax
 Plugin 'jelera/vim-javascript-syntax'
 
+" Color schemes
 Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
+Plugin 'Sclarki/neonwave.vim'
+Plugin 'carlson-erik/wolfpack'
+Plugin 'Sclarki/airline-surarken'
+Plugin 'NLKNguyen/papercolor-theme'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -68,10 +70,10 @@ filetype plugin on
 set laststatus=2
 set noshowmode
 
-"Bundle set guifont=Liberation\ Mono\ for\ Powerline\ 10
-
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1 " This shows vim top tab with buffers and name of the file
+
+" This shows vim top tab with buffers and name of the file
+let g:airline#extensions#tabline#enabled = 1
 
 "let g:airline_left_sep = '»'
 "let g:airline_right_sep = '«'
@@ -80,25 +82,43 @@ let g:airline_right_sep = '◀'
 
 "themes: raven, badwolf
 "themes: raven, rave
+"themes: raven, surarken
 let g:airline_theme='badwolf'
 
 " Unmap the arrow keys(normal mode)
-no <down> <nop>
-no <up> <nop>
-" Unmap the arrow keys(insert mode)
-ino <down> <nop>
-ino <left> <nop>
-ino <right> <nop>
-ino <up> <nop>
+noremap <down> <nop>
+noremap <up> <nop>
 
-" Indentation
-set softtabstop=4 " Tells vim how many spaces a tab should take up
-set shiftwidth=4 " Tells vim how many spaces a tab should take up
+" Unmap the arrow keys(insert mode)
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+inoremap <up> <nop>
+
+""" Awesomeness
+set relativenumber
+
+"" Show indentation levels
+
+" Use spaces for tabs
+set tabstop=4 softtabstop=4 shiftwidth=4
+
+" convert spaces to tabs when reading file
+autocmd! bufreadpost * set noexpandtab | retab! 4
+
+" convert tabs to spaces before writing file
+autocmd! bufwritepre * set expandtab | retab! 4
+
+" convert spaces to tabs after writing file (to show guides again)
+autocmd! bufwritepost * set noexpandtab | retab! 4
+
+"tab:››
+set list listchars=tab:¦.,trail:-,extends:>,precedes:<,eol:¬
+
 set autoindent
 set smartindent
-set expandtab " Convert all tabs to whitespace
-set noexpandtab
-set smarttab
+
+"set smarttab
 
 " Annoyances
 set noerrorbells
@@ -108,6 +128,11 @@ set nobackup
 set noswapfile
 set autochdir
 set nowrap
+
+" Remember the line i was on
+if has("autocmd")
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
 
 " Sane searching and search highlights
 set incsearch
@@ -121,25 +146,21 @@ set smartcase
 set cursorline
 
 " Highlight current column
-set cursorline cursorcolumn
-set cursorline
+set cursorcolumn
 
 "set leaders
 let mapleader = ";"
 let maplocalleader = "\\"
 
-" INSERT mode mapping
-" ========== BEGIN
+""" INSERT mode mapping
+
 noremap <leader><c-d> <esc>ddi
 inoremap jk <esc>
 
 " Forced to use 'jk' to enter normal mode
 inoremap <esc> <nop>
-" ========== END
 
-
-" NORMAL mode mapping
-" ========== BEGIN
+""" NORMAL mode mapping
 
 " Move between buffers and panes
 nnoremap <up> <C-W>k
@@ -178,16 +199,12 @@ nnoremap <s-h> <s-^>
 
 " Go to the end of the line with 'L'
 nnoremap <s-l> <s-$>
-" ========= END
 
-" VISUAL mode mapping
-" ========= BEGIN
+""" VISUAL mode mapping
 
 "Wrap word in single quotes
 vnoremap <leader>' <esc>a'<esc>v:<cr>i'<esc>
 vnoremap n <esc>
-
-" ========= END
 
 " Source vimrc
 nnoremap <leader>sv :source $MYVIMRC<cr>
@@ -196,14 +213,14 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 iabbrev @@ <cr>Author:Luis Sagastume<cr>Email:lsagastume1990@gmail.com
 
 " This will elimiate all the whitespace when a file is writen
-autocmd FileType c,cpp,java,php,go,ruby,javascript,python,perl,sql,sh,yaml,html,erb,css,vim  autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType * autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+" echo syntax groups
+map <leader>s :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 set cindent
-
 set foldmethod=indent
-"set foldlevel=1
 set foldclose=all
-
 
 "-----------------------------------------------
 "The best colorschemes in flazz/vim-colorschemes
@@ -289,6 +306,4 @@ set foldclose=all
 "motus
 "sexy-railscasts
 
-"colorscheme burnttoast256
-"colorscheme iceberg
-colorscheme dracula
+colorscheme blackwolf
