@@ -17,6 +17,9 @@ Plugin 'gmarik/Vundle.vim'
 " NerdThree
 Plugin 'scrooloose/nerdtree'
 
+" Highlight trailing whitespace
+Plugin 'bronson/vim-trailing-whitespace'
+
 " GOlang syntax hightlighting
 "Plugin 'jnwhiteh/vim-golang'
 
@@ -51,6 +54,7 @@ Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'jelera/vim-javascript-syntax'
 
 " Color schemes
+Plugin 'bronzdoc/samurai'
 Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
 Plugin 'Sclarki/neonwave.vim'
 Plugin 'carlson-erik/wolfpack'
@@ -117,8 +121,7 @@ set list listchars=tab:¦.,trail:-,extends:>,precedes:<,eol:¬
 
 set autoindent
 set smartindent
-
-"set smarttab
+set smarttab
 
 " Annoyances
 set noerrorbells
@@ -142,11 +145,8 @@ noremap - :nohls<CR>
 set ignorecase
 set smartcase
 
-" Highlight current line
-set cursorline
-
-" Highlight current column
-set cursorcolumn
+" Highlight line and column
+set cursorline cursorcolumn
 
 "set leaders
 let mapleader = ";"
@@ -306,4 +306,4 @@ set foldclose=all
 "motus
 "sexy-railscasts
 
-colorscheme blackwolf
+colorscheme samurai
