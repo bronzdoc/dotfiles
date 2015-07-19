@@ -43,6 +43,8 @@ ZSH_THEME="robbyrussell"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+ZSH_TMUX_AUTOSTART=true
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -90,6 +92,13 @@ set -o vi
 alias ls="ls --color -l"
 alias zsh='vi ~/.zshrc'
 alias vrc='vi ~/.vimrc'
+alias doclab="ssh ubuntu@52.2.239.20"
+
+# With this set up, i can test changes i've made to Bundler by running dbundle,
+# without interfering with the regular bundle command.
+alias dbundle='ruby -I ~/projects/ruby/bundler/lib ~/.rvm/gems/ruby-2.2.1/gems/bundler-1.10.5/bin/bundle'
+
+alias do_beta="ssh doc@104.131.96.105"
 
 function restore_mongo()
 {
@@ -107,8 +116,7 @@ alias docpro="cd ~/projects"
 alias vi=vim
 
 # GO env
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/usr/local/go/bin
 
 # Python env
 export WORKON_HOME="$HOME/.virtualenvs"
@@ -126,13 +134,14 @@ if [[ -f "$NVM_HOME/nvm.sh" ]]; then
   source "$NVM_HOME/nvm.sh"
 fi
 
-# Set solarized theme colors for terminal
-#eval `dircolors ~/.dircolors`
-
-# Start tmux everytime a terminal is open
-alias tmux="tmux -2"
-#tmux
-
+# Add local bin to path, need this for tmux status-line
+if [ -d "$HOME/.local/bin" ]; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# Start tmux everytime a terminal is open
+alias tmux="tmux -2"
+tmux
