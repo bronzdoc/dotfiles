@@ -1,4 +1,4 @@
-set nocompatible              " be iMproved, required
+set nocompatible             " be iMproved, required
 set encoding=utf-8
 set nobomb
 set t_Co=256
@@ -14,28 +14,14 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-" NerdThree
-Plugin 'scrooloose/nerdtree'
-
 " Highlight trailing whitespace
 Plugin 'bronson/vim-trailing-whitespace'
-
-" GOlang syntax hightlighting
-"Plugin 'jnwhiteh/vim-golang'
-
-Plugin 'fatih/vim-go'
 
 " Bazillion of colorschemes, sweet!
 Plugin 'flazz/vim-colorschemes'
 
-" Gotham color scheme
-Plugin 'whatyouhide/vim-gotham'
-
 " Easy way to search for files
 Plugin 'kien/ctrlp.vim'
-
-" Python mode
-Plugin 'hynek/vim-python-pep8-indent'
 
 " vim sexy ass
 Plugin 'bling/vim-bufferline'
@@ -47,8 +33,6 @@ Bundle 'kshenoy/vim-signature'
 " vim gist plugin
 Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
-
-Plugin 'vim-pandoc/vim-pandoc'
 
 " javascript syntax
 Plugin 'jelera/vim-javascript-syntax'
@@ -99,8 +83,6 @@ inoremap <left> <nop>
 inoremap <right> <nop>
 inoremap <up> <nop>
 
-""" Awesomeness
-set relativenumber
 
 "" Show indentation levels
 
@@ -125,7 +107,7 @@ set smarttab
 
 " Annoyances
 set noerrorbells
-set number
+set relativenumber
 set ruler
 set nobackup
 set noswapfile
@@ -134,7 +116,7 @@ set nowrap
 
 " Remember the line i was on
 if has("autocmd")
-    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
 " Sane searching and search highlights
@@ -191,9 +173,6 @@ nnoremap <leader>fp :echo expand('%:p')<cr>
 " Select word with space
 nnoremap <space> viw
 
-" Move current line down
-nnoremap - ddp
-
 " Go to the start of the line with 'H'
 nnoremap <s-h> <s-^>
 
@@ -221,6 +200,9 @@ map <leader>s :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> t
 set cindent
 set foldmethod=indent
 set foldclose=all
+
+" ctags config
+set tags=./tags,tags;$HOME
 
 "-----------------------------------------------
 "The best colorschemes in flazz/vim-colorschemes
