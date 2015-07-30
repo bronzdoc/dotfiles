@@ -34,16 +34,14 @@ Bundle 'kshenoy/vim-signature'
 Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
 
+" Puppet syntax
+Plugin 'rodjek/vim-puppet'
+
 " javascript syntax
 Plugin 'jelera/vim-javascript-syntax'
 
 " Color schemes
 Plugin 'bronzdoc/samurai'
-Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
-Plugin 'Sclarki/neonwave.vim'
-Plugin 'carlson-erik/wolfpack'
-Plugin 'Sclarki/airline-surarken'
-Plugin 'NLKNguyen/papercolor-theme'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -83,23 +81,25 @@ inoremap <left> <nop>
 inoremap <right> <nop>
 inoremap <up> <nop>
 
-
 "" Show indentation levels
 
 " Use spaces for tabs
 set tabstop=4 softtabstop=4 shiftwidth=4
-
+autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
+set noexpandtab
+set expandtab
 " convert spaces to tabs when reading file
-autocmd! bufreadpost * set noexpandtab | retab! 4
+"autocmd! bufreadpost * set noexpandtab | retab! 4
 
 " convert tabs to spaces before writing file
-autocmd! bufwritepre * set expandtab | retab! 4
+"autocmd! bufwritepre * set expandtab | retab! 4
 
 " convert spaces to tabs after writing file (to show guides again)
-autocmd! bufwritepost * set noexpandtab | retab! 4
+"autocmd! bufwritepost * set noexpandtab | retab! 4
 
 "tab:››
-set list listchars=tab:¦.,trail:-,extends:>,precedes:<,eol:¬
+"set list listchars=tab:¦.,trail:-,extends:>,precedes:<,eol:¬
+set list listchars=eol:¬
 
 set autoindent
 set smartindent
@@ -108,6 +108,7 @@ set smarttab
 " Annoyances
 set noerrorbells
 set relativenumber
+set number
 set ruler
 set nobackup
 set noswapfile
@@ -289,3 +290,4 @@ set tags=./tags,tags;$HOME
 "sexy-railscasts
 
 colorscheme samurai
+
