@@ -20,6 +20,9 @@ Plugin 'bronson/vim-trailing-whitespace'
 " Bazillion of colorschemes, sweet!
 Plugin 'flazz/vim-colorschemes'
 
+" NERDTree
+Plugin 'scrooloose/nerdtree'
+
 " Easy way to search for files
 Plugin 'kien/ctrlp.vim'
 
@@ -85,7 +88,7 @@ inoremap <up> <nop>
 
 " Use spaces for tabs
 set tabstop=4 softtabstop=4 shiftwidth=4
-autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType ruby,sh setlocal tabstop=2 softtabstop=2 shiftwidth=2
 set noexpandtab
 set expandtab
 " convert spaces to tabs when reading file
@@ -99,7 +102,7 @@ set expandtab
 
 "tab:››
 "set list listchars=tab:¦.,trail:-,extends:>,precedes:<,eol:¬
-set list listchars=eol:¬
+set list listchars=tab:››,eol:¬
 
 set autoindent
 set smartindent
