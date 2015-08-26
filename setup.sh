@@ -20,10 +20,10 @@ function valid_arg()
     arg="$1"
 
     for file in $dotfiles; do
-	if [ "$file" == "$arg" ]; then
-	    valid=0
-	    break
-	fi
+        if [ "$file" == "$arg" ]; then
+            valid=0
+            break
+        fi
     done
     echo $valid
 }
@@ -44,24 +44,24 @@ function setup()
     # Check input
     is_valid=$(valid_arg "$file")
     if [ $is_valid -eq 1 ]; then
-	echo "ERROR: Invalid dotfile \"$file\""
-	help
+        echo "ERROR: Invalid dotfile \"$file\""
+        help
     fi
 
     if [ ! -e ~/"$file" ]; then
-	# "${string#substring}" remove substring from string
-	ln -s "$PWD/${file#.}" ~/"$file"
+        # "${string#substring}" remove substring from string
+        ln -s "$PWD/${file#.}" ~/"$file"
         echo "Setting up $file"
     else
-	echo -n "$file file already exists, do you want to update it [y/n]: "
-	read update
-	if [ "$update" == "y" ]; then
+        echo -n "$file file already exists, do you want to update it [y/n]: "
+        read update
+        if [ "$update" == "y" ]; then
             old_file="${file#.}-$(date +%m-%d-%Y:%c)"
-	    touch "$PWD/backups/$old_file"
-	    cp ~/"$file" "$PWD/backups/$old_file"; unlink ~/"$file"
-	    ln -s "$PWD/${file#.}" ~/"$file"
-	    echo "$file updated"
-	fi
+            touch "$PWD/backups/$old_file"
+            cp ~/"$file" "$PWD/backups/$old_file"; unlink ~/"$file"
+            ln -s "$PWD/${file#.}" ~/"$file"
+            echo "$file updated"
+        fi
     fi
 }
 
@@ -83,8 +83,8 @@ function help()
     i=1
     echo "Setup a specific file passing one of the following arguents:"
     for file in $dotfiles; do
-	echo "($i) $file"
-	i=$((i+1))
+        echo "($i) $file"
+        i=$((i+1))
     done
     exit 0
 }
@@ -95,14 +95,14 @@ arg=$1
 # Run the setup
 if [ $# -gt 0 ]; then
     if [ "$arg" == "--help" ]; then
-	help
+        help
     elif [ "$arg" == "--clean" ]; then
-	clean
+        clean
     else
-	setup $arg
+        setup $arg
     fi
 else
     for file in $dotfiles; do
-	setup $file
+        setup $file
     done
 fi
