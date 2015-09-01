@@ -91,17 +91,7 @@ set tabstop=4 softtabstop=4 shiftwidth=4
 autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
 set noexpandtab
 set expandtab
-" convert spaces to tabs when reading file
-"autocmd! bufreadpost * set noexpandtab | retab! 4
 
-" convert tabs to spaces before writing file
-"autocmd! bufwritepre * set expandtab | retab! 4
-
-" convert spaces to tabs after writing file (to show guides again)
-"autocmd! bufwritepost * set noexpandtab | retab! 4
-
-"tab:››
-"set list listchars=tab:¦.,trail:-,extends:>,precedes:<,eol:¬
 set list listchars=tab:››,eol:¬
 
 set autoindent
@@ -133,6 +123,11 @@ set smartcase
 
 " Highlight line and column
 set cursorline cursorcolumn
+
+" Display color column to have guide of my textwidth
+nnoremap<leader>sl <esc>:set textwidth=80<CR><esc>:set cc=+1<CR>
+" Remove color column
+nnoremap<leader>cl <esc>:set cc=<CR>
 
 "set leaders
 let mapleader = ";"
