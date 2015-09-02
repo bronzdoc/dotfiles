@@ -69,9 +69,6 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_left_sep = '▶'
 let g:airline_right_sep = '◀'
 
-"themes: raven, badwolf
-"themes: raven, rave
-"themes: raven, surarken
 let g:airline_theme='badwolf'
 
 " Unmap the arrow keys(normal mode)
@@ -124,24 +121,26 @@ set smartcase
 " Highlight line and column
 set cursorline cursorcolumn
 
-" Display color column to have guide of my textwidth
-nnoremap<leader>sl <esc>:set textwidth=80<CR><esc>:set cc=+1<CR>
-" Remove color column
-nnoremap<leader>cl <esc>:set cc=<CR>
+
 
 "set leaders
 let mapleader = ";"
 let maplocalleader = "\\"
 
+
 """ INSERT mode mapping
 
-noremap <leader><c-d> <esc>ddi
+nnoremap <leader><c-d> <esc>ddi
 inoremap jk <esc>
 
 " Forced to use 'jk' to enter normal mode
 inoremap <esc> <nop>
 
 """ NORMAL mode mapping
+
+nnoremap<leader>sl :set textwidth=80<cr>:set cc=+1<cr>
+" Remove color column
+nnoremap<leader>cl <esc>:set cc=<cr>
 
 " Move between buffers and panes
 nnoremap <up> <C-W>k
@@ -166,10 +165,10 @@ nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 " Open vimrc in a new tab
 nnoremap <leader>ev :vsplit $MYVIMRC<cr><c-w>
 
-" Display nanme of the current file
+" Display name of the current file
 nnoremap <leader>fp :echo expand('%:p')<cr>
 
-" Select word with space
+" Select word with space tab
 nnoremap <space> viw
 
 " Go to the start of the line with 'H'
@@ -203,89 +202,6 @@ set foldclose=all
 " ctags config
 set tags=./tags,tags;$HOME
 
-"-----------------------------------------------
-"The best colorschemes in flazz/vim-colorschemes
-"-----------------------------------------------
-
-"herald
-"h3rald
-"molokai
-"candyman
-"kruby
-"moss
-"neon
-"zen
-"wuye
-"maroloccio
-"marklar
-"luinnar
-"lucius
-"desert256
-"blazer
-"blink
-"mustang
-"darkrobot
-"darkspectrum
-"dante
-"rainbow_neon
-"peppers
-"paintbox
-"navajo-night
-"mint
-"miko
-"darkburn
-"candy
-"blackdust
-"symfony
-"void
-"rootwater
-"charon
-"fu
-"gothic
-"potts
-"matrix
-"3dglasses
-"adrian
-"desertEx
-"elflord
-"graywh
-"doriath
-"metacosm
-"mrkn256
-"shobogenzo
-"candystripe
-"Tomorrow-Night-Eighties
-"hybrid
-"seoul256
-
-" New colors
-"bvemu
-"burnttoast256
-"babymate256
-"256-grayvim
-"256-jungle
-"0x7A69_dark
-"C64
-"dante
-"felipec
-"grb256
-"hemisu
-"herokudoc
-"holokai
-"iceberg
-"jellyx
-"last256
-"lizard256
-"seoul256
-"zephyr
-"mrkn256
-"darth
-"louver
-
-"kkruby
-"mizore
-"motus
-"sexy-railscasts
-
+" Set colorscheme
 colorscheme samurai
 
