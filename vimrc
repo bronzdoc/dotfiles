@@ -31,7 +31,7 @@ Plugin 'bling/vim-bufferline'
 Plugin 'bling/vim-airline'
 
 " This allow me to see m-key marks
-Bundle 'kshenoy/vim-signature'
+Plugin 'kshenoy/vim-signature'
 
 " vim gist plugin
 Plugin 'mattn/webapi-vim'
@@ -43,8 +43,12 @@ Plugin 'rodjek/vim-puppet'
 " javascript syntax
 Plugin 'jelera/vim-javascript-syntax'
 
+" Write html with ease
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+
 " Color schemes
 Plugin 'bronzdoc/samurai'
+Plugin 'atweiden/vim-colors-behelit'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -120,8 +124,6 @@ set smartcase
 
 " Highlight line and column
 set cursorline cursorcolumn
-
-
 
 "set leaders
 let mapleader = ";"
