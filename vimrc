@@ -37,6 +37,9 @@ Plugin 'kshenoy/vim-signature'
 Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
 
+" GO vim support
+Plugin 'fatih/vim-go'
+
 " Puppet syntax
 Plugin 'rodjek/vim-puppet'
 
