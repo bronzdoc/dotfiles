@@ -43,6 +43,9 @@ Plugin 'rodjek/vim-puppet'
 " javascript syntax
 Plugin 'jelera/vim-javascript-syntax'
 
+" coffeescript eww
+Plugin 'kchmck/vim-coffee-script'
+
 " Write html with ease
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
