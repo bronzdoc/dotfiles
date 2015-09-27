@@ -37,6 +37,12 @@ Plugin 'kshenoy/vim-signature'
 Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
 
+" Use git from vim
+Plugin 'tpope/vim-fugitive'
+
+" Adds filetype glyphs (icons)
+Plugin 'ryanoasis/vim-devicons'
+
 " GO vim support
 Plugin 'fatih/vim-go'
 
@@ -54,7 +60,7 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 " Color schemes
 Plugin 'bronzdoc/samurai'
-Plugin 'atweiden/vim-colors-behelit'
+Plugin 'thomd/vim-wasabi-colorscheme'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -74,12 +80,25 @@ let g:airline_powerline_fonts = 1
 " This shows vim top tab with buffers and name of the file
 let g:airline#extensions#tabline#enabled = 1
 
-"let g:airline_left_sep = '»'
-"let g:airline_right_sep = '«'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '◀'
+" Define the set of text to display for each mode
+let g:airline_mode_map = {
+      \ '__' : '-',
+      \ 'n'  : 'N',
+      \ 'i'  : 'I',
+      \ 'R'  : 'R',
+      \ 'c'  : 'C',
+      \ 'v'  : 'V',
+      \ 'V'  : 'V',
+      \ '' : 'V',
+      \ 's'  : 'S',
+      \ 'S'  : 'S',
+      \ '' : 'S',
+      \ }
 
-let g:airline_theme='badwolf'
+"let g:airline_left_sep = '▶'
+"let g:airline_right_sep = '◀'
+
+let g:airline_theme='powerlineish'
 
 " Unmap the arrow keys(normal mode)
 noremap <down> <nop>
@@ -211,5 +230,8 @@ set foldclose=all
 set tags=./tags,tags;$HOME
 
 " Set colorscheme
+" muon
+" thor
+" grb256
 colorscheme samurai
 
