@@ -1,11 +1,15 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+source $HOME/.global
+source $HOME/.secret
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -40,16 +44,13 @@ ZSH_THEME="robbyrussell"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+# Load tmux everytime a terminal is open
+ZSH_TMUX_AUTOSTART=true
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-
-source $HOME/.global
-source $HOME/.secret
-
-ZSH_TMUX_AUTOSTART=true
-
 plugins=(git tmux)
 
 # User configuration
@@ -57,8 +58,6 @@ source $ZSH/oh-my-zsh.sh
 
 export MYVIMRC='~/.vimrc'
 export MYNVIMRC='~/.nvimrc'
-
-export PATH="/home/lsagastume/.rvm/gems/ruby-1.9.3-p484/bin:/home/lsagastume/.rvm/gems/ruby-1.9.3-p484@global/bin:/home/lsagastume/.rvm/rubies/ruby-1.9.3-p484/bin:/home/lsagastume/.rvm/bin:/home/lsagastume/.local/bin:/home/lsagastume/.nvm/v0.10.33/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -80,10 +79,6 @@ export PATH="/home/lsagastume/.rvm/gems/ruby-1.9.3-p484/bin:/home/lsagastume/.rv
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # vim key bindings
 set -o vi
