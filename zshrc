@@ -1,9 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-#Load rvm
-#source "/home/lsagastume/.rvm/scripts/rvm"
-
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -43,22 +40,25 @@ ZSH_THEME="robbyrussell"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-ZSH_TMUX_AUTOSTART=true
-
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+
+source $HOME/.global
+source $HOME/.secret
+
+ZSH_TMUX_AUTOSTART=true
+
+plugins=(git tmux)
 
 # User configuration
+source $ZSH/oh-my-zsh.sh
 
 export MYVIMRC='~/.vimrc'
+export MYNVIMRC='~/.nvimrc'
 
 export PATH="/home/lsagastume/.rvm/gems/ruby-1.9.3-p484/bin:/home/lsagastume/.rvm/gems/ruby-1.9.3-p484@global/bin:/home/lsagastume/.rvm/rubies/ruby-1.9.3-p484/bin:/home/lsagastume/.rvm/bin:/home/lsagastume/.local/bin:/home/lsagastume/.nvm/v0.10.33/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
-# export MANPATH="/usr/local/man:$MANPATH"
-
-source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -90,15 +90,16 @@ set -o vi
 
 # Useful aliases
 alias ls="ls --color -l"
-alias zsh='vi ~/.zshrc'
-alias vrc='vi ~/.vimrc'
-alias doclab="ssh ubuntu@52.2.239.20"
+alias zsh='vim ~/.zshrc'
+alias vrc='vim ~/.vimrc'
+alias nvrc='nvim ~/.nvimrc'
 
 # With this set up, i can test changes i've made to Bundler by running dbundle,
 # without interfering with the regular bundle command.
 alias dbundle='ruby -I ~/projects/ruby/bundler/lib ~/.rvm/gems/ruby-2.2.1/gems/bundler-1.10.5/bin/bundle'
 
 alias do_beta="ssh doc@104.131.96.105"
+alias doclab="ssh ubuntu@52.2.239.20"
 
 function restore_mongo()
 {
@@ -109,14 +110,15 @@ function restore_mongo()
   mongorestore --db $db_name $backup
 }
 
-alias posdev="psql ayalo_dev postgres"
-
 alias docapps="cd /var/www/apps"
 alias docpro="cd ~/projects"
 alias vi=vim
+alias nv=nvim
 
 # GO env
 export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/gocode
+export PATH=$PATH:$HOME/gocode/bin
 
 # Python env
 export WORKON_HOME="$HOME/.virtualenvs"
@@ -124,9 +126,14 @@ export WORKON_HOME="$HOME/.virtualenvs"
 
 # Java env
 CLASSPATH=~/projects/galileo/cc4:.
-export CLASSPATH=/usr/local/lib/antlr-4.3-complete.jar:~/projects/Design_patterns:$CLASSPATH
+CLASSPATH=/usr/local/lib/antlr-4.3-complete.jar:~/projects/Design_patterns:$CLASSPATH
 alias antlr4='java -jar /usr/local/lib/antlr-4.3-complete.jar'
 alias grun='java org.antlr.v4.runtime.misc.TestRig'
+
+# Java bittorrent protocol implementation binaries
+export CLASSPATH=$HOME/projects/java/ttorrent/cli/target/ttorrent-cli-1.5-SNAPSHOT-shaded.jar:$CLASSPATH
+alias ttorrent="java -jar $HOME/projects/java/ttorrent/cli/target/ttorrent-cli-1.5-SNAPSHOT-shaded.jar"
+#PATH=$PATH:$HOME/projects/java/ttorrent/bin
 
 # NVM
 export NVM_HOME="$HOME/.nvm"
@@ -141,7 +148,3 @@ fi
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-# Start tmux everytime a terminal is open
-alias tmux="tmux -2"
-tmux
