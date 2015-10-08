@@ -85,16 +85,13 @@ set -o vi
 
 # Useful aliases
 alias ls="ls --color -l"
-alias zsh='vim ~/.zshrc'
+alias zshrc='vim ~/.zshrc'
 alias vrc='vim ~/.vimrc'
 alias nvrc='nvim ~/.nvimrc'
 
 # With this set up, i can test changes i've made to Bundler by running dbundle,
 # without interfering with the regular bundle command.
 alias dbundle='ruby -I ~/projects/ruby/bundler/lib ~/.rvm/gems/ruby-2.2.1/gems/bundler-1.10.5/bin/bundle'
-
-alias do_beta="ssh doc@104.131.96.105"
-alias doclab="ssh ubuntu@52.2.239.20"
 
 function restore_mongo()
 {
@@ -143,3 +140,6 @@ fi
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# GO version manager
+[[ -s "/home/bronzdoc/.gvm/scripts/gvm" ]] && source "/home/bronzdoc/.gvm/scripts/gvm"
