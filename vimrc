@@ -3,6 +3,10 @@ set encoding=utf-8
 set nobomb
 set t_Co=256
 
+" Make vim faster on terminal
+set lazyredraw
+set ttyfast
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 filetype off " required
@@ -154,7 +158,6 @@ set cursorline cursorcolumn
 let mapleader = ";"
 let maplocalleader = "\\"
 
-
 """ INSERT mode mapping
 
 nnoremap <leader><c-d> <esc>ddi
@@ -233,5 +236,7 @@ set tags=./tags,tags;$HOME
 " muon
 " thor
 " grb256
+" jellyx
+" wasabi
 colorscheme samurai
 
