@@ -46,6 +46,8 @@ ZSH_THEME="robbyrussell"
 
 # Load tmux everytime a terminal is open
 ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_AUTOQUIT=false
+ZSH_TMUX_AUTOCONNECT=false
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -107,6 +109,9 @@ alias docpro="cd ~/projects"
 alias vi=vim
 alias nv=nvim
 
+# irc cliet
+alias irc=irssi
+
 # GO env
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/gocode
@@ -131,11 +136,6 @@ alias ttorrent="java -jar $HOME/projects/java/ttorrent/cli/target/ttorrent-cli-1
 export NVM_HOME="$HOME/.nvm"
 if [[ -f "$NVM_HOME/nvm.sh" ]]; then
   source "$NVM_HOME/nvm.sh"
-fi
-
-# Add local bin to path, need this for tmux status-line
-if [ -d "$HOME/.local/bin" ]; then
-    PATH="$HOME/.local/bin:$PATH"
 fi
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
