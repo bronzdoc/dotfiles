@@ -91,6 +91,8 @@ alias zshrc='vim ~/.zshrc'
 alias vrc='vim ~/.vimrc'
 alias nvrc='nvim ~/.nvimrc'
 
+bindkey '^R' history-incremental-search-backward
+
 # With this set up, i can test changes i've made to Bundler by running dbundle,
 # without interfering with the regular bundle command.
 alias dbundle='ruby -I ~/projects/ruby/bundler/lib ~/.rvm/gems/ruby-2.2.1/gems/bundler-1.10.5/bin/bundle'
@@ -112,10 +114,16 @@ alias nv=nvim
 # irc cliet
 alias irc=irssi
 
+# Alias for Colorized cat
+alias cc=ccat
+
 # GO env
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/gocode
 export PATH=$PATH:$HOME/gocode/bin
+
+# GO version manager
+[[ -s "/home/bronzdoc/.gvm/scripts/gvm" ]] && source "/home/bronzdoc/.gvm/scripts/gvm"
 
 # Python env
 export WORKON_HOME="$HOME/.virtualenvs"
@@ -138,8 +146,4 @@ if [[ -f "$NVM_HOME/nvm.sh" ]]; then
   source "$NVM_HOME/nvm.sh"
 fi
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-# GO version manager
-[[ -s "/home/bronzdoc/.gvm/scripts/gvm" ]] && source "/home/bronzdoc/.gvm/scripts/gvm"
