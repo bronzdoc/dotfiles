@@ -8,7 +8,7 @@ source $HOME/.secret
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="bronzdoc"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -91,6 +91,7 @@ alias zshrc='vim ~/.zshrc'
 alias vrc='vim ~/.vimrc'
 alias nvrc='nvim ~/.nvimrc'
 
+# Search
 bindkey '^R' history-incremental-search-backward
 
 # With this set up, i can test changes i've made to Bundler by running dbundle,
@@ -108,8 +109,8 @@ function restore_mongo()
 
 alias docapps="cd /var/www/apps"
 alias docpro="cd ~/projects"
-alias vi=vim
-alias nv=nvim
+alias vi='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
+alias vim='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
 
 # irc cliet
 alias irc=irssi
