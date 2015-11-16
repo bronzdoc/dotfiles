@@ -118,11 +118,6 @@ alias irc=irssi
 # Alias for Colorized cat
 alias cc=ccat
 
-# GO env
-export PATH=$PATH:/usr/local/go/bin
-export GOPATH=$HOME/gocode
-export PATH=$PATH:$HOME/gocode/bin
-
 # GO version manager
 [[ -s "/home/bronzdoc/.gvm/scripts/gvm" ]] && source "/home/bronzdoc/.gvm/scripts/gvm"
 
