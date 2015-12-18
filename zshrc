@@ -8,7 +8,7 @@ source $HOME/.secret
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="bronzdoc"
+ZSH_THEME="bronz"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -28,8 +28,8 @@ ZSH_THEME="bronzdoc"
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+# Display red dots whilst waiting for completion.
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -58,18 +58,19 @@ plugins=(git tmux)
 # User configuration
 source $ZSH/oh-my-zsh.sh
 
-export MYVIMRC='~/.vimrc'
-export MYNVIMRC='~/.nvimrc'
+export MYVIMRC="~/.vimrc"
+export MYNVIMRC="~/.nvimrc"
+
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+ if [[ -n $SSH_CONNECTION ]]; then
+   export EDITOR='vim'
+ else
+   export EDITOR='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
+ fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -87,9 +88,18 @@ set -o vi
 
 # Useful aliases
 alias ls="ls --color -l"
-alias zshrc='vim ~/.zshrc'
-alias vrc='vim ~/.vimrc'
-alias nvrc='nvim ~/.nvimrc'
+alias zshrc="vim ~/.zshrc"
+alias vi="NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim"
+alias vim="NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim"
+alias vrc="vi ~/.vimrc"
+alias nvrc="vi ~/.nvimrc"
+
+
+# irc cliet
+alias irc=irssi
+
+# Alias for Colorized cat
+alias cc=ccat
 
 # Search
 bindkey '^R' history-incremental-search-backward
@@ -97,6 +107,7 @@ bindkey '^R' history-incremental-search-backward
 # With this set up, i can test changes i've made to Bundler by running dbundle,
 # without interfering with the regular bundle command.
 alias dbundle='ruby -I ~/projects/ruby/bundler/lib ~/.rvm/gems/ruby-2.2.1/gems/bundler-1.10.5/bin/bundle'
+
 
 function restore_mongo()
 {
@@ -107,34 +118,16 @@ function restore_mongo()
   mongorestore --db $db_name $backup
 }
 
-alias docapps="cd /var/www/apps"
-alias docpro="cd ~/projects"
-alias vi='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
-alias vim='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
-
-# irc cliet
-alias irc=irssi
-
-# Alias for Colorized cat
-alias cc=ccat
-
 # GO version manager
 [[ -s "/home/bronzdoc/.gvm/scripts/gvm" ]] && source "/home/bronzdoc/.gvm/scripts/gvm"
-
-# Python env
-export WORKON_HOME="$HOME/.virtualenvs"
-#source /usr/local/bin/virtualenvwrapper.sh
-
-# Java env
-CLASSPATH=~/projects/galileo/cc4:.
-CLASSPATH=/usr/local/lib/antlr-4.3-complete.jar:~/projects/Design_patterns:$CLASSPATH
-alias antlr4='java -jar /usr/local/lib/antlr-4.3-complete.jar'
-alias grun='java org.antlr.v4.runtime.misc.TestRig'
 
 # Java bittorrent protocol implementation binaries
 export CLASSPATH=$HOME/projects/java/ttorrent/cli/target/ttorrent-cli-1.5-SNAPSHOT-shaded.jar:$CLASSPATH
 alias ttorrent="java -jar $HOME/projects/java/ttorrent/cli/target/ttorrent-cli-1.5-SNAPSHOT-shaded.jar"
 #PATH=$PATH:$HOME/projects/java/ttorrent/bin
+
+# Mips simulator
+alias mars="java -jar $HOME/projects/MARS_Assembler/Mars.jar"
 
 # NVM
 export NVM_HOME="$HOME/.nvm"
