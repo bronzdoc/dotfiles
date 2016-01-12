@@ -94,6 +94,8 @@ alias vim="NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim"
 alias vrc="vi ~/.vimrc"
 alias nvrc="vi ~/.nvimrc"
 
+# Test changes you've made to Bundler by running dbundle, without interfering with the regular bundle command.
+alias dbundle='ruby -I $HOME/projects/ruby/bundler/lib $HOME/projects/ruby/bundler/exe/bundle'
 
 # irc cliet
 alias irc=irssi
@@ -103,11 +105,6 @@ alias cc=ccat
 
 # Search
 bindkey '^R' history-incremental-search-backward
-
-# With this set up, i can test changes i've made to Bundler by running dbundle,
-# without interfering with the regular bundle command.
-alias dbundle='ruby -I ~/projects/ruby/bundler/lib ~/.rvm/gems/ruby-2.2.1/gems/bundler-1.10.5/bin/bundle'
-
 
 function restore_mongo()
 {
