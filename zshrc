@@ -97,6 +97,9 @@ alias nvrc="vi ~/.nvimrc"
 # Test changes you've made to Bundler by running dbundle, without interfering with the regular bundle command.
 alias dbundle='ruby -I $HOME/projects/ruby/bundler/lib $HOME/projects/ruby/bundler/exe/bundle'
 
+# Test changes you've made to Rubygems by running dgem, without interfering with the regular gem command.
+alias dgem='ruby -I $HOME/projects/ruby/rubygems/lib $HOME/projects/ruby/rubygems/bin/gem'
+
 # irc cliet
 alias irc=irssi
 
