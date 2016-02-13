@@ -146,8 +146,9 @@ inoremap <esc> <nop>
 " Source vimrc
 nnoremap <leader>sv :source $MYNVIMRC<cr>
 
+" Show line, shows color column
 nnoremap<leader>sl :set textwidth=80<cr>:set cc=+1<cr>
-" Remove color column
+" Close line, closes color column
 nnoremap<leader>cl <esc>:set cc=<cr>
 
 " Move between buffers and panes
