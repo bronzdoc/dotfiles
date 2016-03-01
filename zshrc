@@ -95,10 +95,10 @@ alias vrc="vi ~/.vimrc"
 alias nvrc="vi ~/.nvimrc"
 
 # Test changes you've made to Bundler by running dbundle, without interfering with the regular bundle command.
-alias dbundle='ruby -I $HOME/projects/ruby/bundler/lib $HOME/projects/ruby/bundler/exe/bundle'
+alias dbundle="ruby -I $HOME/projects/ruby/bundler/lib $HOME/projects/ruby/bundler/exe/bundle"
 
 # Test changes you've made to Rubygems by running dgem, without interfering with the regular gem command.
-alias dgem='ruby -I $HOME/projects/ruby/rubygems/lib $HOME/projects/ruby/rubygems/bin/gem'
+alias dgem="ruby -I $HOME/projects/ruby/rubygems/lib $HOME/projects/ruby/rubygems/bin/gem"
 
 # irc cliet
 alias irc=irssi
@@ -123,7 +123,10 @@ function restore_mongo()
 }
 
 # GO version manager
-[[ -s "/home/bronzdoc/.gvm/scripts/gvm" ]] && source "/home/bronzdoc/.gvm/scripts/gvm"
+#[[ -s "/home/bronzdoc/.gvm/scripts/gvm" ]] && source "/home/bronzdoc/.gvm/scripts/gvm"
+export GOPATH=$HOME/gocode
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/usr/local/go/bin
 
 # Java bittorrent protocol implementation binaries
 export CLASSPATH=$HOME/projects/java/ttorrent/cli/target/ttorrent-cli-1.5-SNAPSHOT-shaded.jar:$CLASSPATH
