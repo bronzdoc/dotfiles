@@ -122,8 +122,7 @@ function restore_mongo()
   mongorestore --db $db_name $backup
 }
 
-# GO version manager
-#[[ -s "/home/bronzdoc/.gvm/scripts/gvm" ]] && source "/home/bronzdoc/.gvm/scripts/gvm"
+# GO environment
 export GOPATH=$HOME/gocode
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/usr/local/go/bin
