@@ -54,6 +54,8 @@ Plugin 'kchmck/vim-coffee-script'
 " Write html with ease
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
+Plugin 'rhysd/vim-crystal'
+
 " Color schemes
 Plugin 'bronzdoc/samurai'
 Plugin 'noahfrederick/vim-hemisu'
