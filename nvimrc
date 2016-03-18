@@ -139,6 +139,7 @@ let maplocalleader = "\\"
 
 " move faster, dont go to esc, just pres jk fast to return to normal
 inoremap jk <esc>
+inoremap kj <esc>
 
 " Forced to use 'jk' to enter normal mode
 inoremap <esc> <nop>
