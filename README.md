@@ -1,9 +1,9 @@
 # dotfiles
 
-Run <code>./setup</code> to setup all
+Run <code>./install</code> to install all
 
 ##or
 
-<code>./setup \<dotfile\></code> to setup a specific one (e.g. <code>./setup .vimrc</code>)
+<code>./install \<dotfile\></code> to install a specific one (e.g. <code>./install .vimrc</code>)
 
 
