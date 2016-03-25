@@ -1,38 +1,30 @@
-set nocompatible             " be iMproved, required
-set encoding=utf-8
 set nobomb
-set t_Co=256
 
 " Make vim faster on terminal
 set lazyredraw
 set ttyfast
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-filetype off " required
+set rtp+=~/.neovim/bundle/Vundle.vim
 
 " alternatively, pass a path where Vundle should install plugins
 " call vundle#begin('~/some/path/here')
-call vundle#begin()
+call vundle#begin('~/.neovim/bundle')
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " Highlight trailing whitespace
 Plugin 'bronson/vim-trailing-whitespace'
-
-" Bazillion of colorschemes, sweet!
-Plugin 'flazz/vim-colorschemes'
 
 " NERDTree
 Plugin 'scrooloose/nerdtree'
 
 " Easy way to search for files
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 
-" vim sexy ass
+" Nice buffers in status line
 Plugin 'bling/vim-bufferline'
-Plugin 'bling/vim-airline'
 
 " This allow me to see m-key marks
 Plugin 'kshenoy/vim-signature'
@@ -62,51 +54,38 @@ Plugin 'kchmck/vim-coffee-script'
 " Write html with ease
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
+Plugin 'rhysd/vim-crystal'
+
 " Color schemes
 Plugin 'bronzdoc/samurai'
-Plugin 'thomd/vim-wasabi-colorscheme'
+Plugin 'noahfrederick/vim-hemisu'
+Plugin 'joshdick/onedark.vim'
+Plugin 'w0ng/vim-hybrid'
+" Bazillion of colorschemes, sweet!
+Plugin 'flazz/vim-colorschemes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
 
 " Standar setup
 filetype plugin indent on " required
-filetype on
-filetype indent on
-filetype plugin on
 
-" Needed for vim-airline
 set laststatus=2
-set noshowmode
+"set noshowmode
 
-let g:airline_powerline_fonts = 1
+let g:bufferline_echo = 0
+autocmd VimEnter *
+    \ let &statusline='%{bufferline#refresh_status()}'
+      \ .bufferline#get_status_string()
 
-" This shows vim top tab with buffers and name of the file
-let g:airline#extensions#tabline#enabled = 1
-
-" Define the set of text to display for each mode
-let g:airline_mode_map = {
-      \ '__' : '-',
-      \ 'n'  : 'N',
-      \ 'i'  : 'I',
-      \ 'R'  : 'R',
-      \ 'c'  : 'C',
-      \ 'v'  : 'V',
-      \ 'V'  : 'V',
-      \ '' : 'V',
-      \ 's'  : 'S',
-      \ 'S'  : 'S',
-      \ '' : 'S',
-      \ }
-
-"let g:airline_left_sep = '▶'
-"let g:airline_right_sep = '◀'
-
-let g:airline_theme='powerlineish'
+let g:bufferline_show_bufnr = 0
+let g:bufferline_active_buffer_left = '['
+let g:bufferline_active_buffer_right = ']'
 
 " Unmap the arrow keys(normal mode)
 noremap <down> <nop>
 noremap <up> <nop>
+
 
 " Unmap the arrow keys(insert mode)
 inoremap <down> <nop>
@@ -118,15 +97,13 @@ inoremap <up> <nop>
 
 " Use spaces for tabs
 set tabstop=4 softtabstop=4 shiftwidth=4
-autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType ruby,crystal setlocal tabstop=2 softtabstop=2 shiftwidth=2
 set noexpandtab
 set expandtab
-
-set list listchars=tab:››,eol:¬
-
 set autoindent
 set smartindent
 set smarttab
+set list listchars=tab:››,eol:¬
 
 " Annoyances
 set noerrorbells
@@ -147,9 +124,9 @@ endif
 set incsearch
 set hlsearch
 set showmatch
-noremap - :nohls<CR>
 set ignorecase
 set smartcase
+noremap - :nohls<CR>
 
 " Highlight line and column
 set cursorline cursorcolumn
@@ -158,18 +135,23 @@ set cursorline cursorcolumn
 let mapleader = ";"
 let maplocalleader = "\\"
 
-""" INSERT mode mapping
+" INSERT mode mapping
 
-nnoremap <leader><c-d> <esc>ddi
+" move faster, dont go to esc, just pres jk fast to return to normal
 inoremap jk <esc>
+inoremap kj <esc>
 
 " Forced to use 'jk' to enter normal mode
 inoremap <esc> <nop>
 
-""" NORMAL mode mapping
+"" NORMAL mode mapping
 
+" Source vimrc
+nnoremap <leader>sv :source $MYNVIMRC<cr>
+
+" Show line, shows color column
 nnoremap<leader>sl :set textwidth=80<cr>:set cc=+1<cr>
-" Remove color column
+" Close line, closes color column
 nnoremap<leader>cl <esc>:set cc=<cr>
 
 " Move between buffers and panes
@@ -189,11 +171,11 @@ nnoremap <leader><c-u> viwg<s-u>
 " Indent with a keystroke
 nnoremap <leader>g ggv<s-g>=
 
-"Wrap word in double quotes
+" Wrap word in double quotes
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 
 " Open vimrc in a new tab
-nnoremap <leader>ev :vsplit $MYVIMRC<cr><c-w>
+nnoremap <leader>ev :vsplit $MYNVIMRC<cr><c-w>
 
 " Display name of the current file
 nnoremap <leader>fp :echo expand('%:p')<cr>
@@ -207,19 +189,16 @@ nnoremap <s-h> <s-^>
 " Go to the end of the line with 'L'
 nnoremap <s-l> <s-$>
 
-""" VISUAL mode mapping
+"" VISUAL mode mapping
 
-"Wrap word in single quotes
+" Wrap word in single quotes
 vnoremap <leader>' <esc>a'<esc>v:<cr>i'<esc>
 vnoremap n <esc>
-
-" Source vimrc
-nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " vim abbreviations
 iabbrev @@ <cr>Author:Luis Sagastume<cr>Email:lsagastume1990@gmail.com
 
-" This will elimiate all the whitespace when a file is writen
+" This will elimiate all the whitespace when a file is written
 autocmd FileType * autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 " echo syntax groups
@@ -233,10 +212,6 @@ set foldclose=all
 set tags=./tags,tags;$HOME
 
 " Set colorscheme
-" muon
-" thor
-" grb256
-" jellyx
-" wasabi
+syntax enable
+set background=dark
 colorscheme samurai
-
