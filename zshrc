@@ -59,8 +59,6 @@ plugins=(git tmux)
 source $ZSH/oh-my-zsh.sh
 
 export MYVIMRC="~/.vimrc"
-export MYNVIMRC="~/.nvimrc"
-
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -92,7 +90,6 @@ alias zshrc="vim ~/.zshrc"
 alias vi="NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim"
 alias vim="NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim"
 alias vrc="vi ~/.vimrc"
-alias nvrc="vi ~/.nvimrc"
 
 # Test changes you've made to Bundler by running dbundle, without interfering with the regular bundle command.
 alias dbundle="ruby -I $HOME/projects/ruby/bundler/lib $HOME/projects/ruby/bundler/exe/bundle"

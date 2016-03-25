@@ -5,11 +5,11 @@ set lazyredraw
 set ttyfast
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.neovim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim
 
 " alternatively, pass a path where Vundle should install plugins
 " call vundle#begin('~/some/path/here')
-call vundle#begin('~/.neovim/bundle')
+call vundle#begin('~/.vim/bundle')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
@@ -147,7 +147,7 @@ inoremap <esc> <nop>
 "" NORMAL mode mapping
 
 " Source vimrc
-nnoremap <leader>sv :source $MYNVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " Show line, shows color column
 nnoremap<leader>sl :set textwidth=80<cr>:set cc=+1<cr>
@@ -175,8 +175,7 @@ nnoremap <leader>g ggv<s-g>=
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 
 " Open vimrc in a new tab
-nnoremap <leader>ev :vsplit $MYNVIMRC<cr><c-w>
-
+nnoremap <leader>ev :vsplit $MYVIMRC<cr><c-w>
 " Display name of the current file
 nnoremap <leader>fp :echo expand('%:p')<cr>
 
