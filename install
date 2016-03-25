@@ -8,7 +8,7 @@
 #********************************
 
 #Dotfiles
-dotfiles=".vimrc .nvimrc .zshrc .bashrc .tmux.conf .pryrc .gemrc"
+dotfiles=".vimrc .zshrc .bashrc .tmux.conf .pryrc .gemrc"
 
 #*********************
 # Valid args function
@@ -26,6 +26,20 @@ function valid_arg()
         fi
     done
     echo $valid
+}
+
+#************************************************
+# vimrc setup function
+# will configure vim and neovim vimrc
+#************************************************
+function vimrc_setup()
+{
+    [ "$XDG_CONFIG_HOME" == "" ] && XDG_CONFIG_HOME="$HOME/.config"
+    [ ! -e ~/.vim ]   && mkdir ~/.vim
+    [ ! -e ~/.vimrc ] && mkdir ~/.vimrc
+
+    ln -s ~/.vim "$XDG_CONFIG_HOME/nvim"
+    ln -s ~/.vimrc "$XDG_CONFIG_HOME/nvim/init.vim"
 }
 
 # Create directory to backup files
@@ -49,9 +63,10 @@ function setup()
     fi
 
     if [ ! -e ~/"$file" ]; then
-        # "${string#substring}" remove substring from string
-        ln -s "$PWD/${file#.}" ~/"$file"
         echo "Setting up $file"
+
+        ln -s "$PWD/${file#.}" ~/"$file" # ${string#substring} remove substring from string
+        [ "$file" == ".vimrc" ] && vimrc_setup
     else
         echo -n "$file file already exists, do you want to update it [y/n]: "
         read update
@@ -60,6 +75,8 @@ function setup()
             touch "$PWD/backups/$old_file"
             cp ~/"$file" "$PWD/backups/$old_file"; unlink ~/"$file"
             ln -s "$PWD/${file#.}" ~/"$file"
+            [ "$file" == ".vimrc" ] && vimrc_setup
+
             echo "$file updated"
         fi
     fi
