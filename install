@@ -43,9 +43,7 @@ function vimrc_setup()
 }
 
 # Create directory to backup files
-if [ ! -d "$PWD/backups" ]; then
-    mkdir "$PWD/backups"
-fi
+[ ! -d "$PWD/backups" ] && mkdir "$PWD/backups"
 
 #************************************************
 # Setup function
