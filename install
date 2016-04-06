@@ -8,7 +8,7 @@
 #********************************
 
 #Dotfiles
-dotfiles=".vimrc .zshrc .bashrc .tmux.conf .pryrc .gemrc"
+dotfiles=".vimrc .zshrc .bashrc .tmux.conf .pryrc .gemrc .gitconfig"
 
 #*********************
 # Valid args function
