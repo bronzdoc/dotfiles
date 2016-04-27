@@ -35,10 +35,28 @@ function valid_arg()
 function vimrc_setup()
 {
     [ "$XDG_CONFIG_HOME" == "" ] && XDG_CONFIG_HOME="$HOME/.config"
-    [ ! -e ~/.vim ]   && mkdir ~/.vim
-    [ ! -e ~/.vimrc ] && mkdir ~/.vimrc
+    if [ ! -e ~/.vim ]; then
+         mkdir -p ~/.vim/bundle
 
-    ln -s ~/.vim "$XDG_CONFIG_HOME/nvim"
+         # Need git to install Vundle
+         git_message=$(type git)
+         if  echo $git_message | grep --invert-match -iq "not found"; then
+             echo "Setting Vundle..."
+             git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+         else
+             echo "Can't complete vimrc configuration, install git to continue"
+             exit 1
+         fi
+     fi
+
+    [ ! -e "$XDG_CONFIG_HOME/nvim" ] && mkdir -p "$XDG_CONFIG_HOME/nvim"
+
+    if [ "$#" -gt 0 ] && [ "$1" == "y" ]; then
+        if [ -h "$XDG_CONFIG_HOME/nvim/init.vim" ]; then
+            unlink "$XDG_CONFIG_HOME/nvim/init.vim"
+        fi
+    fi
+
     ln -s ~/.vimrc "$XDG_CONFIG_HOME/nvim/init.vim"
 }
 
@@ -73,7 +91,7 @@ function setup()
             touch "$PWD/backups/$old_file"
             cp ~/"$file" "$PWD/backups/$old_file"; unlink ~/"$file"
             ln -s "$PWD/${file#.}" ~/"$file"
-            [ "$file" == ".vimrc" ] && vimrc_setup
+            [ "$file" == ".vimrc" ] && vimrc_setup $update
 
             echo "$file updated"
         fi
