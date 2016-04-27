@@ -1,4 +1,5 @@
 set nobomb
+"set t_Co=256
 
 " Make vim faster on terminal
 set lazyredraw
@@ -113,7 +114,7 @@ set ruler
 set nobackup
 set noswapfile
 set autochdir
-set nowrap
+set wrap
 
 " Remember the line i was on
 if has("autocmd")
