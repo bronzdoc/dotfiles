@@ -1,5 +1,5 @@
 set nobomb
-"set t_Co=256
+set t_Co=256
 
 " Make vim faster on terminal
 set lazyredraw
