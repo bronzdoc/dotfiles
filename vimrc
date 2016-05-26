@@ -109,6 +109,7 @@ set list listchars=tab:››,eol:¬
 " Annoyances
 set noerrorbells
 set relativenumber
+set numberwidth=1
 set number
 set ruler
 set nobackup
