@@ -57,11 +57,15 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 Plugin 'rhysd/vim-crystal'
 
+" ligthline
+Plugin 'itchyny/lightline.vim'
+
 " Color schemes
 Plugin 'bronzdoc/samurai'
 Plugin 'noahfrederick/vim-hemisu'
 Plugin 'joshdick/onedark.vim'
 Plugin 'w0ng/vim-hybrid'
+
 " Bazillion of colorschemes, sweet!
 Plugin 'flazz/vim-colorschemes'
 
@@ -72,21 +76,46 @@ call vundle#end()
 filetype plugin indent on " required
 
 set laststatus=2
-"set noshowmode
+set noshowmode
 
-let g:bufferline_echo = 0
-autocmd VimEnter *
-    \ let &statusline='%{bufferline#refresh_status()}'
-      \ .bufferline#get_status_string()
+"let g:bufferline_echo = 0
+"autocmd VimEnter *
+"    \ let &statusline='%{bufferline#refresh_status()}'
+"      \ .bufferline#get_status_string()
+"
+"let g:bufferline_show_bufnr = 0
+"let g:bufferline_active_buffer_left = '['
+"let g:bufferline_active_buffer_right = ']'
 
-let g:bufferline_show_bufnr = 0
-let g:bufferline_active_buffer_left = '['
-let g:bufferline_active_buffer_right = ']'
+
+let g:lightline = {
+      \ 'mode_map': {
+      \   'n': 'N',
+      \   'i': 'I',
+      \   'R': 'R',
+      \   'v': 'V',
+      \ },
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component': {
+      \   'readonly': '%{&filetype=="help"?"":&readonly?"RO":""}',
+      \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
+      \   'fugitive': ' %{exists("*fugitive#head")?fugitive#head():""}'
+      \ },
+      \ 'component_visible_condition': {
+      \   'readonly': '(&filetype!="help"&& &readonly)',
+      \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
+      \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '¦', 'right': '¦' }
+      \ }
 
 " Unmap the arrow keys(normal mode)
 noremap <down> <nop>
 noremap <up> <nop>
-
 
 " Unmap the arrow keys(insert mode)
 inoremap <down> <nop>
