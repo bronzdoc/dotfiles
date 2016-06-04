@@ -18,9 +18,6 @@ Plugin 'VundleVim/Vundle.vim'
 " Highlight trailing whitespace
 Plugin 'bronson/vim-trailing-whitespace'
 
-" NERDTree
-Plugin 'scrooloose/nerdtree'
-
 " Easy way to search for files
 Plugin 'ctrlpvim/ctrlp.vim'
 
@@ -46,12 +43,6 @@ Plugin 'fatih/vim-go'
 " Puppet syntax
 Plugin 'rodjek/vim-puppet'
 
-" javascript syntax
-Plugin 'jelera/vim-javascript-syntax'
-
-" coffeescript eww
-Plugin 'kchmck/vim-coffee-script'
-
 " Write html with ease
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
@@ -60,13 +51,11 @@ Plugin 'rhysd/vim-crystal'
 " ligthline
 Plugin 'itchyny/lightline.vim'
 
-" Color schemes
+" Colorschemes
 Plugin 'bronzdoc/samurai'
 Plugin 'noahfrederick/vim-hemisu'
 Plugin 'joshdick/onedark.vim'
 Plugin 'w0ng/vim-hybrid'
-
-" Bazillion of colorschemes, sweet!
 Plugin 'flazz/vim-colorschemes'
 
 " All of your Plugins must be added before the following line
@@ -78,27 +67,10 @@ filetype plugin indent on " required
 set laststatus=2
 set noshowmode
 
-"let g:bufferline_echo = 0
-"autocmd VimEnter *
-"    \ let &statusline='%{bufferline#refresh_status()}'
-"      \ .bufferline#get_status_string()
-"
-"let g:bufferline_show_bufnr = 0
-"let g:bufferline_active_buffer_left = '['
-"let g:bufferline_active_buffer_right = ']'
-
-
 let g:lightline = {
-      \ 'mode_map': {
-      \   'n': 'N',
-      \   'i': 'I',
-      \   'R': 'R',
-      \   'v': 'V',
-      \ },
+      \ 'mode_map': {'n': 'N','i': 'I','R': 'R','v': 'V',},
       \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
-      \ },
+      \   'left': [['mode','paste'],['fugitive','readonly','filename','modified']]},
       \ 'component': {
       \   'readonly': '%{&filetype=="help"?"":&readonly?"RO":""}',
       \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
@@ -166,17 +138,6 @@ set cursorline cursorcolumn
 let mapleader = ";"
 let maplocalleader = "\\"
 
-" INSERT mode mapping
-
-" move faster, dont go to esc, just pres jk fast to return to normal
-inoremap jk <esc>
-inoremap kj <esc>
-
-" Forced to use 'jk' to enter normal mode
-inoremap <esc> <nop>
-
-"" NORMAL mode mapping
-
 " Source vimrc
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
@@ -192,8 +153,6 @@ nnoremap <S-Left> <C-W>h
 nnoremap <S-Right> <C-W>l
 nnoremap <left> :bp!<CR>
 nnoremap <right> :bn!<CR>
-nnoremap H <C-w>w
-nnoremap L <C-w>W
 nnoremap <leader>rm <esc>:%s/\r//g<cr><esc>
 
 " Uppercase word
@@ -213,14 +172,6 @@ nnoremap <leader>fp :echo expand('%:p')<cr>
 " Select word with space tab
 nnoremap <space> viw
 
-" Go to the start of the line with 'H'
-nnoremap <s-h> <s-^>
-
-" Go to the end of the line with 'L'
-nnoremap <s-l> <s-$>
-
-"" VISUAL mode mapping
-
 " Wrap word in single quotes
 vnoremap <leader>' <esc>a'<esc>v:<cr>i'<esc>
 vnoremap n <esc>
@@ -235,8 +186,6 @@ autocmd FileType * autocmd BufWritePre <buffer> :%s/\s\+$//e
 map <leader>s :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 set cindent
-set foldmethod=indent
-set foldclose=all
 
 " ctags config
 set tags=./tags,tags;$HOME
