@@ -24,9 +24,6 @@ Plugin 'ctrlpvim/ctrlp.vim'
 " Nice buffers in status line
 Plugin 'bling/vim-bufferline'
 
-" This allow me to see m-key marks
-Plugin 'kshenoy/vim-signature'
-
 " vim gist plugin
 Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
@@ -57,6 +54,7 @@ Plugin 'noahfrederick/vim-hemisu'
 Plugin 'joshdick/onedark.vim'
 Plugin 'w0ng/vim-hybrid'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'chriskempson/base16-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -120,7 +118,7 @@ set wrap
 
 " Remember the line i was on
 if has("autocmd")
-   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
 " Sane searching and search highlights
@@ -171,6 +169,10 @@ nnoremap <leader>fp :echo expand('%:p')<cr>
 
 " Select word with space tab
 nnoremap <space> viw
+
+" Move within tabs
+nnoremap <leader>t gt
+nnoremap <leader>y gT
 
 " Wrap word in single quotes
 vnoremap <leader>' <esc>a'<esc>v:<cr>i'<esc>
