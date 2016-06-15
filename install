@@ -12,7 +12,7 @@ dotfiles=".vimrc .zshrc .bashrc .tmux.conf .pryrc .gemrc .gitconfig"
 
 #*********************
 # Valid args function
-# Cheack valid dotfile
+# Check valid dotfile
 #*********************
 function valid_arg()
 {
