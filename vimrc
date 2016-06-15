@@ -37,9 +37,6 @@ Plugin 'ryanoasis/vim-devicons'
 " GO vim support
 Plugin 'fatih/vim-go'
 
-" Puppet syntax
-Plugin 'rodjek/vim-puppet'
-
 " Write html with ease
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
@@ -89,10 +86,11 @@ noremap <up> <nop>
 
 " Unmap the arrow keys(insert mode)
 inoremap <down> <nop>
+inoremap <up> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
-inoremap <up> <nop>
 
+"
 "" Show indentation levels
 
 " Use spaces for tabs
@@ -162,7 +160,7 @@ nnoremap <leader>g ggv<s-g>=
 " Wrap word in double quotes
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 
-" Open vimrc in a new tab
+" Open vimrc in a new window
 nnoremap <leader>ev :vsplit $MYVIMRC<cr><c-w>
 " Display name of the current file
 nnoremap <leader>fp :echo expand('%:p')<cr>
