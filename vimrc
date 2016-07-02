@@ -31,6 +31,9 @@ Plugin 'mattn/gist-vim'
 " Use git from vim
 Plugin 'tpope/vim-fugitive'
 
+" Surround text object
+Plugin 'tpope/vim-surround'
+
 " Adds filetype glyphs (icons)
 Plugin 'ryanoasis/vim-devicons'
 
