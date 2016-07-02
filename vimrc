@@ -98,7 +98,6 @@ inoremap <right> <nop>
 
 " Use spaces for tabs
 set tabstop=4 softtabstop=4 shiftwidth=4
-autocmd FileType ruby,crystal setlocal tabstop=2 softtabstop=2 shiftwidth=2
 set noexpandtab
 set expandtab
 set autoindent
@@ -183,7 +182,11 @@ vnoremap n <esc>
 iabbrev @@ <cr>Author:Luis Sagastume<cr>Email:lsagastume1990@gmail.com
 
 " This will elimiate all the whitespace when a file is written
-autocmd FileType * autocmd BufWritePre <buffer> :%s/\s\+$//e
+aug filetype
+    au!
+    au FileType * autocmd BufWritePre <buffer> :%s/\s\+$//e
+    au FileType ruby,crystal setlocal tabstop=2 softtabstop=2 shiftwidth=2
+aug end
 
 " echo syntax groups
 map <leader>s :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
