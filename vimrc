@@ -188,6 +188,14 @@ aug filetype
     au FileType ruby,crystal setlocal tabstop=2 softtabstop=2 shiftwidth=2
 aug end
 
+" Vimscript file settings ---------------------- {{{
+augroup filetype_vim
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+augroup END
+" }}}
+"
+
 " echo syntax groups
 map <leader>s :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
