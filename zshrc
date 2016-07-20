@@ -88,7 +88,6 @@ set -o vi
 alias ls="ls --color -l"
 alias zshrc="vim ~/.zshrc"
 alias vi="NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim"
-alias vim="NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim"
 alias vrc="vi ~/.vimrc"
 
 # Test changes you've made to Bundler by running dbundle, without interfering with the regular bundle command.
