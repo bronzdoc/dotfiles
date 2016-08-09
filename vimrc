@@ -43,7 +43,11 @@ Plugin 'fatih/vim-go'
 " Write html with ease
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
+" Crystal
 Plugin 'rhysd/vim-crystal'
+
+" Rust
+Plugin 'rust-lang/rust.vim'
 
 " ligthline
 Plugin 'itchyny/lightline.vim'
