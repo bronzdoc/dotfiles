@@ -208,6 +208,8 @@ set cindent
 " ctags config
 set tags=./tags,tags;$HOME
 
+set showbreak=↪
+
 " Set colorscheme
 syntax enable
 set background=dark
