@@ -30,26 +30,27 @@ function valid_arg()
 
 #************************************************
 # vimrc setup function
-# will configure vim and neovim vimrc
+# will configure vimrc and init.vim
 #************************************************
 function vimrc_setup()
 {
+    # Need curl to install vim-plug
+    dependency=curl
+    git_message=$(type $dependency)
+    if  echo $git_message | grep --invert-match -iq "not found"; then
+        echo "Setting up vim-plug"
+    else
+        echo "Can't complete vim/nvim configuration, install $dependency to continue"
+        exit 1
+    fi
+
     [ "$XDG_CONFIG_HOME" == "" ] && XDG_CONFIG_HOME="$HOME/.config"
-    if [ ! -e ~/.vim ]; then
-         mkdir -p ~/.vim/bundle
 
-         # Need git to install Vundle
-         git_message=$(type git)
-         if  echo $git_message | grep --invert-match -iq "not found"; then
-             echo "Setting Vundle..."
-             git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-         else
-             echo "Can't complete vimrc configuration, install git to continue"
-             exit 1
-         fi
-     fi
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-    [ ! -e "$XDG_CONFIG_HOME/nvim" ] && mkdir -p "$XDG_CONFIG_HOME/nvim"
+    curl -fLo $XDG_CONFIG_HOME/nvim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
     if [ "$#" -gt 0 ] && [ "$1" == "y" ]; then
         if [ -h "$XDG_CONFIG_HOME/nvim/init.vim" ]; then
@@ -114,7 +115,7 @@ function clean()
 function help()
 {
     i=1
-    echo "Setup a specific file passing one of the following arguents:"
+    echo "Setup a specific file choosing one of the following arguments:"
     for file in $dotfiles; do
         echo "($i) $file"
         i=$((i+1))

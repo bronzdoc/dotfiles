@@ -5,63 +5,58 @@ set t_Co=256
 set lazyredraw
 set ttyfast
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-
-" alternatively, pass a path where Vundle should install plugins
-" call vundle#begin('~/some/path/here')
-call vundle#begin('~/.vim/bundle')
+call plug#begin('~/.vim/plugged')
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+Plug 'VundleVim/Vundle.vim'
 
 " Highlight trailing whitespace
-Plugin 'bronson/vim-trailing-whitespace'
+Plug 'bronson/vim-trailing-whitespace'
 
 " Easy way to search for files
-Plugin 'ctrlpvim/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 
 " Nice buffers in status line
-Plugin 'bling/vim-bufferline'
+Plug 'bling/vim-bufferline'
 
 " vim gist plugin
-Plugin 'mattn/webapi-vim'
-Plugin 'mattn/gist-vim'
+Plug 'mattn/webapi-vim'
+Plug 'mattn/gist-vim'
 
 " Use git from vim
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 " Surround text object
-Plugin 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 
 " Adds filetype glyphs (icons)
-Plugin 'ryanoasis/vim-devicons'
+Plug 'ryanoasis/vim-devicons'
 
 " GO vim support
-Plugin 'fatih/vim-go'
+Plug 'fatih/vim-go'
 
 " Write html with ease
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 " Crystal
-Plugin 'rhysd/vim-crystal'
+Plug 'rhysd/vim-crystal'
 
 " Rust
-Plugin 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim'
 
 " ligthline
-Plugin 'itchyny/lightline.vim'
+Plug 'itchyny/lightline.vim'
 
 " Colorschemes
-Plugin 'bronzdoc/samurai'
-Plugin 'noahfrederick/vim-hemisu'
-Plugin 'joshdick/onedark.vim'
-Plugin 'w0ng/vim-hybrid'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'chriskempson/base16-vim'
+Plug 'bronzdoc/samurai'
+Plug 'noahfrederick/vim-hemisu'
+Plug 'joshdick/onedark.vim'
+Plug 'w0ng/vim-hybrid'
+Plug 'flazz/vim-colorschemes'
+Plug 'chriskempson/base16-vim'
 
-" All of your Plugins must be added before the following line
-call vundle#end()
+" Add plugins to &runtimepath
+call plug#end()
 
 " Standar setup
 filetype plugin indent on " required
