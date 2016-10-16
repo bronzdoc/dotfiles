@@ -311,6 +311,11 @@ set tags=./tags,tags;$HOME
 
 set showbreak=↪
 
+" Setup true colors if available
+if has("termguicolors")
+  set termguicolors
+endif
+
 " Set colorscheme
 syntax enable
 set background=dark

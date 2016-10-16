@@ -67,7 +67,7 @@ export MYVIMRC="~/.vimrc"
  if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
  else
-   export EDITOR='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
+   export EDITOR='nvim'
  fi
 
 # Compilation flags
@@ -86,9 +86,9 @@ set -o vi
 
 # Useful aliases
 alias ls="ls --color -l"
-alias zshrc="vim ~/.zshrc"
-alias vi="NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim"
+alias vi="nvim"
 alias vrc="vi ~/.vimrc"
+alias zshrc="vi ~/.zshrc"
 
 # Test changes you've made to Bundler by running dbundle, without interfering with the regular bundle command.
 alias dbundle="ruby -I $HOME/projects/ruby/bundler/lib $HOME/projects/ruby/bundler/exe/bundle"
@@ -117,6 +117,9 @@ function restore_mongo()
   read backup
   mongorestore --db $db_name $backup
 }
+
+# Put brew in path
+export PATH="$HOME/.linuxbrew/bin:$PATH"
 
 # GO environment
 export GOPATH=$HOME/gocode
