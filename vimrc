@@ -30,16 +30,16 @@ Plug 'tpope/vim-surround'
 Plug 'ryanoasis/vim-devicons'
 
 " GO vim support
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', {'for': 'go'}
 
 " Write html with ease
-Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plug 'rstacruz/sparkup', {'rtp': 'vim/', 'for': 'html'}
 
 " Crystal
 Plug 'rhysd/vim-crystal'
 
 " Rust
-Plug 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim', {'for': 'rust'}
 
 " ligthline
 Plug 'itchyny/lightline.vim'
