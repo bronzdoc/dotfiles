@@ -121,6 +121,12 @@ function restore_mongo()
 # Put brew in path
 export PATH="$HOME/.linuxbrew/bin:$PATH"
 
+# Do NOT autoupdate when:
+# brew install
+# brew tap
+# brew update
+export HOMEBREW_NO_AUTO_UPDATE=1
+
 # GO environment
 export GOPATH=$HOME/gocode
 export PATH=$PATH:$GOPATH/bin
