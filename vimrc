@@ -32,6 +32,9 @@ Plug 'ryanoasis/vim-devicons'
 " GO vim support
 Plug 'fatih/vim-go', {'for': 'go'}
 
+" Javascript support
+Plug 'pangloss/vim-javascript', {'for': 'javascript'}
+
 " Write html with ease
 Plug 'rstacruz/sparkup', {'rtp': 'vim/', 'for': 'html'}
 
@@ -46,11 +49,11 @@ Plug 'itchyny/lightline.vim'
 
 " Colorschemes
 Plug 'bronzdoc/samurai'
+Plug 'bronzdoc/zombie'
 Plug 'noahfrederick/vim-hemisu'
 Plug 'joshdick/onedark.vim'
 Plug 'w0ng/vim-hybrid'
 Plug 'flazz/vim-colorschemes'
-Plug 'chriskempson/base16-vim'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -290,7 +293,9 @@ iabbrev @@ <cr>Author:Luis Sagastume<cr>Email:lsagastume1990@gmail.com
 aug filetype
     au!
     au FileType * autocmd BufWritePre <buffer> :%s/\s\+$//e
-    au FileType ruby,crystal setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    au FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    au FileType crystal setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    au FileType javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2
 aug end
 
 " Vimscript file settings ---------------------- {{{
@@ -319,4 +324,4 @@ endif
 " Set colorscheme
 syntax enable
 set background=dark
-colorscheme samurai
+colorscheme zombie
