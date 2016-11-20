@@ -7,6 +7,7 @@ set ttyfast
 
 call plug#begin('~/.vim/plugged')
 
+
 " Highlight trailing whitespace
 Plug 'bronson/vim-trailing-whitespace'
 
@@ -32,9 +33,6 @@ Plug 'ryanoasis/vim-devicons'
 " GO vim support
 Plug 'fatih/vim-go', {'for': 'go'}
 
-" Javascript support
-Plug 'pangloss/vim-javascript', {'for': 'javascript'}
-
 " Write html with ease
 Plug 'rstacruz/sparkup', {'rtp': 'vim/', 'for': 'html'}
 
@@ -43,6 +41,9 @@ Plug 'rhysd/vim-crystal'
 
 " Rust
 Plug 'rust-lang/rust.vim', {'for': 'rust'}
+
+" Multiple language support
+Plug 'sheerun/vim-polyglot'
 
 " ligthline
 Plug 'itchyny/lightline.vim'
@@ -289,22 +290,23 @@ vnoremap n <esc>
 " vim abbreviations
 iabbrev @@ <cr>Author:Luis Sagastume<cr>Email:lsagastume1990@gmail.com
 
-" This will elimiate all the whitespace when a file is written
 aug filetype
     au!
+
+    " This will elimiate all the whitespace when a file is written
     au FileType * autocmd BufWritePre <buffer> :%s/\s\+$//e
+
     au FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
     au FileType crystal setlocal tabstop=2 softtabstop=2 shiftwidth=2
     au FileType javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2
 aug end
 
 " Vimscript file settings ---------------------- {{{
-augroup filetype_vim
-    autocmd!
-    autocmd FileType vim setlocal foldmethod=marker
-augroup END
+aug filetype_vim
+    au!
+    au FileType vim setlocal foldmethod=marker
+aug end
 " }}}
-"
 
 " echo syntax groups
 map <leader>s :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
