@@ -38,9 +38,6 @@ Plug 'fatih/vim-go', {'for': 'go'}
 " Write html with ease
 Plug 'rstacruz/sparkup', {'rtp': 'vim/', 'for': 'html'}
 
-" Crystal
-Plug 'rhysd/vim-crystal'
-
 " Rust
 Plug 'rust-lang/rust.vim', {'for': 'rust'}
 
@@ -56,7 +53,6 @@ Plug 'bronzdoc/zombie'
 Plug 'noahfrederick/vim-hemisu'
 Plug 'joshdick/onedark.vim'
 Plug 'w0ng/vim-hybrid'
-Plug 'flazz/vim-colorschemes'
 "}}}
 
 " Add plugins to &runtimepath
@@ -70,7 +66,7 @@ set noshowmode
 
 " lightline --{{{
 let g:lightline = {
-     \ 'colorscheme': 'powerline',
+      \ 'colorscheme': 'powerline',
       \ 'mode_map': {'n': 'N','i': 'I','R': 'R','v': 'V',},
       \ 'active': {
       \   'left': [['mode','paste'],['fugitive','readonly','filename','modified']]},
@@ -207,7 +203,7 @@ inoremap <left> <nop>
 inoremap <right> <nop>
 
 " Use spaces for tabs
-set tabstop=4 softtabstop=4 shiftwidth=4
+set tabstop=2 softtabstop=2 shiftwidth=2
 set noexpandtab
 set expandtab
 set autoindent
@@ -288,26 +284,23 @@ iabbrev @@ <cr>Author:Luis Sagastume<cr>Email:lsagastume1990@gmail.com
 
 " augroups --{{{
 aug filetype
-    au!
-
-    " This will elimiate all the whitespace when a file is written
-    au FileType * autocmd BufWritePre <buffer> :%s/\s\+$//e
-
-    au FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
-    au FileType crystal setlocal tabstop=2 softtabstop=2 shiftwidth=2
-    au FileType javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2
-aug end
-
-aug filetype_vim
-    au!
-    au FileType vim setlocal foldmethod=marker
-aug end
-
-" Remember the line i was on
-if has("autocmd")
   au!
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
+
+  " This will elimiate all the whitespace when a file is written
+  au FileType * autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+  au FileType c setlocal tabstop=4 softtabstop=4 shiftwidth=4
+  au FileType go setlocal tabstop=4 softtabstop=4 shiftwidth=4
+aug end
+
+aug util
+  if has("autocmd")
+    au!
+    " Remember the line i was on
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+    au FileType vim setlocal foldmethod=marker
+  endif
+aug end
 "}}}
 
 " echo syntax groups
