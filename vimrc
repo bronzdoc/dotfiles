@@ -8,6 +8,8 @@ set ttyfast
 call plug#begin('~/.vim/plugged')
 
 
+" vim plugins -- {{{
+"
 " Highlight trailing whitespace
 Plug 'bronson/vim-trailing-whitespace'
 
@@ -45,7 +47,7 @@ Plug 'rust-lang/rust.vim', {'for': 'rust'}
 " Multiple language support
 Plug 'sheerun/vim-polyglot'
 
-" ligthline
+" lightline
 Plug 'itchyny/lightline.vim'
 
 " Colorschemes
@@ -55,6 +57,7 @@ Plug 'noahfrederick/vim-hemisu'
 Plug 'joshdick/onedark.vim'
 Plug 'w0ng/vim-hybrid'
 Plug 'flazz/vim-colorschemes'
+"}}}
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -65,6 +68,7 @@ filetype plugin indent on " required
 set laststatus=2
 set noshowmode
 
+" lightline --{{{
 let g:lightline = {
      \ 'colorscheme': 'powerline',
       \ 'mode_map': {'n': 'N','i': 'I','R': 'R','v': 'V',},
@@ -190,7 +194,7 @@ let s:palette = g:lightline#colorscheme#{g:lightline.colorscheme}#palette
 let s:palette.normal.left = [ [ s:guicolor.darkestgreen, s:guicolor.brightgreen, s:cuicolor.darkestgreen, s:cuicolor.brightgreen ], [ s:guicolor.gray4, s:guicolor.gray1, s:cuicolor.gray4, s:cuicolor.gray1 ] ]
 
 let s:palette.visual.left = [ [ s:guicolor.darkred, s:guicolor.brightorange, s:cuicolor.darkred, s:cuicolor.brightorange], [s:guicolor.gray4, s:guicolor.gray1, s:cuicolor.gray4, s:cuicolor.gray1]]
-
+"}}}
 
 " Unmap the arrow keys(normal mode)
 noremap <down> <nop>
@@ -201,9 +205,6 @@ inoremap <down> <nop>
 inoremap <up> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
-
-"
-"" Show indentation levels
 
 " Use spaces for tabs
 set tabstop=4 softtabstop=4 shiftwidth=4
@@ -224,11 +225,6 @@ set nobackup
 set noswapfile
 set autochdir
 set wrap
-
-" Remember the line i was on
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
 
 " Sane searching and search highlights
 set incsearch
@@ -290,6 +286,7 @@ vnoremap n <esc>
 " vim abbreviations
 iabbrev @@ <cr>Author:Luis Sagastume<cr>Email:lsagastume1990@gmail.com
 
+" augroups --{{{
 aug filetype
     au!
 
@@ -301,12 +298,17 @@ aug filetype
     au FileType javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2
 aug end
 
-" Vimscript file settings ---------------------- {{{
 aug filetype_vim
     au!
     au FileType vim setlocal foldmethod=marker
 aug end
-" }}}
+
+" Remember the line i was on
+if has("autocmd")
+  au!
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+"}}}
 
 " echo syntax groups
 map <leader>s :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
