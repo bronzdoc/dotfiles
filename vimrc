@@ -13,6 +13,10 @@ call plug#begin('~/.vim/plugged')
 " Highlight trailing whitespace
 Plug 'bronson/vim-trailing-whitespace'
 
+" vim file tree
+Plug 'scrooloose/nerdtree'
+
+
 " Easy way to search for files
 Plug 'ctrlpvim/ctrlp.vim'
 
