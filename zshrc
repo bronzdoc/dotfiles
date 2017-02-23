@@ -102,9 +102,16 @@ alias irc=irssi
 # Alias for Colorized cat
 alias cc=ccat
 
-#### Docker alias #####
-alias clean_images="docker rmi -f $(docker images | grep '^<none>' | awk '{print $3}')"
-alias clean_containers="docker rm $(docker ps -aq)"
+# Docker utilities
+function clean_images()
+{
+  docker rmi -f $(docker images | grep '^<none>' | awk '{print $3}')
+}
+
+function clean_containers()
+{
+  docker rm $(docker ps -aq)
+}
 
 # Search
 bindkey '^R' history-incremental-search-backward
