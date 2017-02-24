@@ -7,7 +7,6 @@ set ttyfast
 
 call plug#begin('~/.vim/plugged')
 
-
 " vim plugins -- {{{
 "
 " Highlight trailing whitespace
@@ -15,7 +14,6 @@ Plug 'bronson/vim-trailing-whitespace'
 
 " vim file tree
 Plug 'scrooloose/nerdtree'
-
 
 " Easy way to search for files
 Plug 'ctrlpvim/ctrlp.vim'
@@ -42,11 +40,15 @@ Plug 'fatih/vim-go', {'for': 'go'}
 " Write html with ease
 Plug 'rstacruz/sparkup', {'rtp': 'vim/', 'for': 'html'}
 
+" CoffeeScript
+Plug 'kchmck/vim-coffee-script'
+
+
 " Rust
 Plug 'rust-lang/rust.vim', {'for': 'rust'}
 
 " Multiple language support
-Plug 'sheerun/vim-polyglot'
+"Plug 'sheerun/vim-polyglot', { 'tag': 'v2.6.0' }
 
 " lightline
 Plug 'itchyny/lightline.vim'
