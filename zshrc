@@ -147,12 +147,6 @@ alias ttorrent="java -jar $HOME/projects/java/ttorrent/cli/target/ttorrent-cli-1
 # Mips simulator
 alias mars="java -jar $HOME/projects/MARS_Assembler/Mars.jar"
 
-# NVM
-export NVM_HOME="$HOME/.nvm"
-if [[ -f "$NVM_HOME/nvm.sh" ]]; then
-  source "$NVM_HOME/nvm.sh"
-fi
-
 export PKG_CONFIG_PATH="/usr/lib/x86_64-linux-gnu/pkgconfig:$PKG_CONFIG_PATH"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
