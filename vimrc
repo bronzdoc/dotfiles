@@ -8,9 +8,16 @@ set ttyfast
 call plug#begin('~/.vim/plugged')
 
 " vim plugins -- {{{
-"
+
 " Highlight trailing whitespace
 Plug 'bronson/vim-trailing-whitespace'
+
+" Powerful fuzzyfinder
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+" Focus on specific part of your code
+Plug 'junegunn/limelight.vim'
 
 " vim file tree
 Plug 'scrooloose/nerdtree'
@@ -43,7 +50,6 @@ Plug 'rstacruz/sparkup', {'rtp': 'vim/', 'for': 'html'}
 " CoffeeScript
 Plug 'kchmck/vim-coffee-script'
 
-
 " Rust
 Plug 'rust-lang/rust.vim', {'for': 'rust'}
 
@@ -59,6 +65,7 @@ Plug 'bronzdoc/zombie'
 Plug 'noahfrederick/vim-hemisu'
 Plug 'joshdick/onedark.vim'
 Plug 'w0ng/vim-hybrid'
+Plug 'chriskempson/base16-vim'
 "}}}
 
 " Add plugins to &runtimepath
