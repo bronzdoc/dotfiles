@@ -66,6 +66,7 @@ Plug 'noahfrederick/vim-hemisu'
 Plug 'joshdick/onedark.vim'
 Plug 'w0ng/vim-hybrid'
 Plug 'chriskempson/base16-vim'
+Plug 'sjl/badwolf'
 "}}}
 
 " Add plugins to &runtimepath
@@ -334,4 +335,4 @@ endif
 " Set colorscheme
 syntax enable
 set background=dark
-colorscheme zombie
+colorscheme badwolf
