@@ -233,7 +233,7 @@ set number
 set ruler
 set nobackup
 set noswapfile
-set autochdir
+"set autochdir
 set wrap
 
 " Sane searching and search highlights
@@ -250,6 +250,9 @@ set cursorline cursorcolumn
 "set leaders
 let mapleader = ";"
 let maplocalleader = "\\"
+
+" Make NERDTree show hidden files
+let NERDTreeShowHidden=1
 
 " Source vimrc
 nnoremap <leader>sv :source $MYVIMRC<cr>
@@ -288,6 +291,9 @@ nnoremap <space> viw
 " Move within tabs
 nnoremap <leader>t gt
 nnoremap <leader>y gT
+
+" Toggle NERDTree
+nnoremap <C-o> :NERDTreeToggle<CR>
 
 " Wrap word in single quotes
 vnoremap <leader>' <esc>a'<esc>v:<cr>i'<esc>
