@@ -135,7 +135,7 @@ set number
 set ruler
 set nobackup
 set noswapfile
-"set autochdir
+set autochdir
 set wrap
 
 " Sane searching and search highlights
