@@ -62,6 +62,7 @@ Plug 'rust-lang/rust.vim', {'for': 'rust'}
 " lightline
 Plug 'itchyny/lightline.vim'
 Plug 'cocopon/lightline-hybrid.vim'
+Plug 'bronzdoc/blackMamba'
 
 " Colorschemes
 Plug 'bronzdoc/samurai'
@@ -88,7 +89,7 @@ set noshowmode
 
 " lightline --{{{
 let g:lightline = {
-      \ 'colorscheme': 'hybrid',
+      \ 'colorscheme': 'black_mamba',
       \ 'mode_map': {'n': 'N','i': 'I','R': 'R','v': 'V',},
       \ 'active': {
       \   'left': [['mode','paste'],['fugitive','readonly','filename','modified']]},
@@ -126,6 +127,7 @@ set smartindent
 set smarttab
 "set list listchars=tab:››,eol:¬
 set list listchars=tab:..,eol:¬
+set backspace=indent,eol,start
 
 " Annoyances
 set noerrorbells
@@ -244,11 +246,11 @@ if has("termguicolors")
 endif
 
 " Use deoplete.
-let g:deoplete#enable_at_startup = 1
-set completeopt=longest,menuone
+"let g:deoplete#enable_at_startup = 1
+"set completeopt=longest,menuone
 
 " Deoplete go
-let g:deoplete#sources#go#gocode_binary = '/Users/daenney/Development/go/bin/gocode'
+"let g:deoplete#sources#go#gocode_binary = '/Users/daenney/Development/go/bin/gocode'
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 
 " Set colorscheme
