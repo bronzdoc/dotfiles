@@ -85,8 +85,8 @@ export MYVIMRC="~/.vimrc"
 set -o vi
 
 # Useful aliases
-alias ls="ls --color -l"
-alias vi="nvim"
+alias ls="ls -G -l"
+alias vi="vim"
 alias vrc="vi ~/.vimrc"
 alias zshrc="vi ~/.zshrc"
 
@@ -149,4 +149,6 @@ alias mars="java -jar $HOME/projects/MARS_Assembler/Mars.jar"
 
 export PKG_CONFIG_PATH="/usr/lib/x86_64-linux-gnu/pkgconfig:$PKG_CONFIG_PATH"
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+eval "$(rbenv init -)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
