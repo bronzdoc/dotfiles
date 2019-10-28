@@ -8,7 +8,7 @@ source $HOME/.secret
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="bronz"
+ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -64,22 +64,13 @@ export MYVIMRC="~/.vimrc"
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
- if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='vim'
- else
-   export EDITOR='nvim'
- fi
+export EDITOR="vim"
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
 
 # vim key bindings
 set -o vi
@@ -94,7 +85,7 @@ alias zshrc="vi ~/.zshrc"
 alias dbundle="ruby -I $HOME/projects/ruby/bundler/lib $HOME/projects/ruby/bundler/exe/bundle"
 
 # Test changes you've made to Rubygems by running dgem, without interfering with the regular gem command.
-alias dgem="ruby -I $HOME/projects/ruby/rubygems/lib $HOME/projects/ruby/rubygems/bin/gem"
+alias dgem="ruby -I $HOME/projects/rubygems/lib $HOME/projects/rubygems/bin/gem"
 
 # irc cliet
 alias irc=irssi
@@ -139,16 +130,11 @@ export GOPATH=$HOME/gocode
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/usr/local/go/bin
 
-# Java bittorrent protocol implementation binaries
-export CLASSPATH=$HOME/projects/java/ttorrent/cli/target/ttorrent-cli-1.5-SNAPSHOT-shaded.jar:$CLASSPATH
-alias ttorrent="java -jar $HOME/projects/java/ttorrent/cli/target/ttorrent-cli-1.5-SNAPSHOT-shaded.jar"
-#PATH=$PATH:$HOME/projects/java/ttorrent/bin
-
-# Mips simulator
-alias mars="java -jar $HOME/projects/MARS_Assembler/Mars.jar"
-
 export PKG_CONFIG_PATH="/usr/lib/x86_64-linux-gnu/pkgconfig:$PKG_CONFIG_PATH"
 
 eval "$(rbenv init -)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PATH="/usr/local/opt/qt@5.5/bin:$PATH"
+export PATH="$HOME/Qt5.5.0/5.5/clang_64/bin:$PATH"
