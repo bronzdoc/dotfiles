@@ -56,26 +56,20 @@ Plug 'kchmck/vim-coffee-script'
 " Rust
 Plug 'rust-lang/rust.vim', {'for': 'rust'}
 
-" Multiple language support
-"Plug 'sheerun/vim-polyglot', { 'tag': 'v2.6.0' }
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
 
 " lightline
 Plug 'itchyny/lightline.vim'
 Plug 'cocopon/lightline-hybrid.vim'
 Plug 'bronzdoc/blackMamba'
+Plug 'danishprakash/vim-yami'
+
 
 " Colorschemes
 Plug 'bronzdoc/samurai'
 Plug 'bronzdoc/zombie'
-Plug 'noahfrederick/vim-hemisu'
-Plug 'joshdick/onedark.vim'
-Plug 'w0ng/vim-hybrid'
-Plug 'chriskempson/base16-vim'
 Plug 'sjl/badwolf'
-Plug 'altercation/vim-colors-solarized'
-Plug 'vim-scripts/C64.vim'
-Plug 'morhetz/gruvbox'
-Plug 'dracula/vim'
 "}}}
 
 " Add plugins to &runtimepath
@@ -125,7 +119,6 @@ set expandtab
 set autoindent
 set smartindent
 set smarttab
-"set list listchars=tab:››,eol:¬
 set list listchars=tab:..,eol:¬
 set backspace=indent,eol,start
 
@@ -206,9 +199,6 @@ nnoremap <C-o> :NERDTreeToggle<CR>
 vnoremap <leader>' <esc>a'<esc>v:<cr>i'<esc>
 vnoremap n <esc>
 
-" vim abbreviations
-iabbrev @@ <cr>Author:Luis Sagastume<cr>Email:lsagastume1990@gmail.com
-
 " augroups --{{{
 aug filetype
   au!
@@ -244,14 +234,6 @@ set showbreak=↪
 if has("termguicolors")
   set termguicolors
 endif
-
-" Use deoplete.
-"let g:deoplete#enable_at_startup = 1
-"set completeopt=longest,menuone
-
-" Deoplete go
-"let g:deoplete#sources#go#gocode_binary = '/Users/daenney/Development/go/bin/gocode'
-let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 
 " Set colorscheme
 syntax enable
