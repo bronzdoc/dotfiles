@@ -143,12 +143,6 @@ set cursorline cursorcolumn
 let mapleader = ";"
 let maplocalleader = "\\"
 
-" Make NERDTree show hidden files
-let NERDTreeShowHidden=1
-
-" Make NERDTree sidebar show right side
-let g:NERDTreeWinPos = "right"
-
 " Source vimrc
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
@@ -187,9 +181,6 @@ nnoremap <space> viw
 nnoremap <leader>t gt
 nnoremap <leader>y gT
 
-" Toggle NERDTree
-nnoremap <C-o> :NERDTreeToggle<CR>
-
 " Wrap word in single quotes
 vnoremap <leader>' <esc>a'<esc>v:<cr>i'<esc>
 vnoremap n <esc>
@@ -221,6 +212,19 @@ function! s:find_git_root()
 endfunction
 
 command! ProjectFiles execute 'Files' s:find_git_root()
+
+" .............................................................................
+" scrooloose/nerdtree
+" .............................................................................
+
+" Toggle NERDTree
+nnoremap <C-o> :NERDTreeToggle<CR>
+
+" Make NERDTree show hidden files
+let NERDTreeShowHidden=1
+
+" Close NERDTree when opening a file
+let g:NERDTreeQuitOnOpen=1
 
 " augroups --{{{
 aug filetype
