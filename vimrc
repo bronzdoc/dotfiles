@@ -25,9 +25,6 @@ Plug 'junegunn/limelight.vim'
 " vim file tree
 Plug 'scrooloose/nerdtree'
 
-" Easy way to search for files
-Plug 'ctrlpvim/ctrlp.vim'
-
 " Nice buffers in status line
 Plug 'bling/vim-bufferline'
 
@@ -58,13 +55,11 @@ Plug 'rust-lang/rust.vim', {'for': 'rust'}
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
-
 " lightline
 Plug 'itchyny/lightline.vim'
 Plug 'cocopon/lightline-hybrid.vim'
 Plug 'bronzdoc/blackMamba'
 Plug 'danishprakash/vim-yami'
-
 
 " Colorschemes
 Plug 'bronzdoc/samurai'
@@ -199,6 +194,34 @@ nnoremap <C-o> :NERDTreeToggle<CR>
 vnoremap <leader>' <esc>a'<esc>v:<cr>i'<esc>
 vnoremap n <esc>
 
+" .............................................................................
+" junegunn/fzf.vim
+" .............................................................................
+
+let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
+
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit',
+  \ 'ctrl-y': {lines -> setreg('*', join(lines, "\n"))}}
+
+" Launch fzf with CTRL+P.
+nnoremap <silent> <C-p> :ProjectFiles<CR>
+
+" Map a few common things to do with FZF.
+nnoremap <silent> <Leader>l :Lines<CR>
+
+" Allow passing optional flags into the Rg command.
+"   Example: :Rg myterm -g '*.md'
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case " . <q-args>, 1, <bang>0)
+
+function! s:find_git_root()
+  return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
+endfunction
+
+command! ProjectFiles execute 'Files' s:find_git_root()
+
 " augroups --{{{
 aug filetype
   au!
@@ -224,9 +247,6 @@ aug end
 map <leader>s :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 set cindent
-
-" ctags config
-set tags=./tags,tags;$HOME
 
 set showbreak=↪
 
