@@ -65,7 +65,21 @@ Plug 'danishprakash/vim-yami'
 Plug 'bronzdoc/samurai'
 Plug 'bronzdoc/zombie'
 Plug 'sjl/badwolf'
+Plug 'EdenEast/nightfox.nvim' " Vim-Plug
+Plug 'ghifarit53/tokyonight-vim'
+
 "}}}
+
+
+" Optional deps
+Plug 'nvim-tree/nvim-web-devicons' "or Plug 'echasnovski/mini.icons'
+Plug 'HakonHarnes/img-clip.nvim'
+Plug 'zbirenbaum/copilot.lua'
+Plug 'stevearc/dressing.nvim' " for enhanced input UI
+Plug 'folke/snacks.nvim' " for modern input UI
+
+
+call plug#end()
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -262,4 +276,8 @@ endif
 " Set colorscheme
 syntax enable
 set background=dark
-colorscheme zombie
+
+let g:tokyonight_style = 'night' " available: night, storm
+let g:tokyonight_enable_italic = 1
+
+colorscheme tokyonight
