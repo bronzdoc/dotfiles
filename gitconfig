@@ -22,5 +22,14 @@
     untracked = red bold
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	up = !git fetch origin && git rebase origin/master
 [push]
 	default = simple
+[credential "https://git.heroku.com"]
+	helper = !heroku git:credentials
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential

@@ -44,3 +44,6 @@ fi
 # Start tmux everytime a terminal is open
 tmux
 
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+. "$HOME/.cargo/env"

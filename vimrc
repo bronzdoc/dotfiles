@@ -16,8 +16,9 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-go', { 'do': 'make'}
+" Neovim-only plugins — disabled for Vim
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'zchee/deoplete-go', { 'do': 'make'}
 
 " Focus on specific part of your code
 Plug 'junegunn/limelight.vim'
@@ -65,23 +66,20 @@ Plug 'danishprakash/vim-yami'
 Plug 'bronzdoc/samurai'
 Plug 'bronzdoc/zombie'
 Plug 'sjl/badwolf'
-Plug 'EdenEast/nightfox.nvim' " Vim-Plug
+" Plug 'EdenEast/nightfox.nvim' " Neovim-only
 Plug 'ghifarit53/tokyonight-vim'
 
 "}}}
 
 
-" Optional deps
-Plug 'nvim-tree/nvim-web-devicons' "or Plug 'echasnovski/mini.icons'
-Plug 'HakonHarnes/img-clip.nvim'
-Plug 'zbirenbaum/copilot.lua'
-Plug 'stevearc/dressing.nvim' " for enhanced input UI
-Plug 'folke/snacks.nvim' " for modern input UI
+" Neovim-only deps — disabled for Vim
+" Plug 'nvim-tree/nvim-web-devicons'
+" Plug 'HakonHarnes/img-clip.nvim'
+" Plug 'zbirenbaum/copilot.lua'
+" Plug 'stevearc/dressing.nvim'
+" Plug 'folke/snacks.nvim'
 
 
-call plug#end()
-
-" Add plugins to &runtimepath
 call plug#end()
 
 " Standar setup
@@ -111,6 +109,9 @@ let g:lightline = {
       \ }
 "}}}
 
+" Exit insert mode with jk (esc is the herdr prefix)
+inoremap jk <esc>
+
 " Unmap the arrow keys(normal mode)
 noremap <down> <nop>
 noremap <up> <nop>
@@ -139,7 +140,7 @@ set number
 set ruler
 set nobackup
 set noswapfile
-set autochdir
+" set autochdir
 set wrap
 
 " Sane searching and search highlights
@@ -151,7 +152,8 @@ set smartcase
 noremap - :nohls<CR>
 
 " Highlight line and column
-set cursorline cursorcolumn
+set cursorline
+" cursorcolumn removed — causes significant slowdown on every cursor move
 
 "set leaders
 let mapleader = ";"
@@ -280,4 +282,4 @@ set background=dark
 let g:tokyonight_style = 'night' " available: night, storm
 let g:tokyonight_enable_italic = 1
 
-colorscheme tokyonight
+colorscheme zombie
